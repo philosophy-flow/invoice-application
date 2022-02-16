@@ -25,6 +25,8 @@ module.exports = {
       lightTwo: "#DFE3FA",
       lightThree: "#7E88C3",
       lightFour: "#888EB0",
+      black: "#000000",
+      white: "#FFFFFF",
     },
   },
   plugins: [],
