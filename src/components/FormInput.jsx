@@ -1,5 +1,5 @@
 import React from "react";
-import { Field } from "formik";
+import { Field, ErrorMessage } from "formik";
 
 import SelectField from "./SelectField";
 import DateField from "./DateField";
@@ -38,6 +38,7 @@ function FormInput({
     <div className="py-3 max-w-xs ">
       <label htmlFor={name}>{label}</label>
       {inputType}
+      <ErrorMessage name={name} />
     </div>
   );
 }
