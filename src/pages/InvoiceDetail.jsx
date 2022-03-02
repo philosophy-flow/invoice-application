@@ -3,8 +3,8 @@ import Button from "../components/Button";
 
 function InvoiceDetail({ handleForm }) {
   return (
-    <main className="min-h-screen bg-lightTwo">
-      <div className="absolute bottom-4 right-4">
+    <main>
+      <div className="fixed bottom-4 right-4">
         <Button
           variant="primary"
           label="Edit Invoice"
