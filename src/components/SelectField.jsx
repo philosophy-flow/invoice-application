@@ -11,7 +11,7 @@ function SelectField({ options, field, form }) {
       }
       onChange={(option) => form.setFieldValue(field.name, option.value)}
       onBlur={field.onBlur}
-      placeholder={options[0].value}
+      placeholder={options[0].label}
     />
   );
 }

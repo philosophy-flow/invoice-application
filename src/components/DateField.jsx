@@ -9,6 +9,8 @@ function DateField({ field = {}, form = {} }) {
       onChange={(date) => {
         form.setFieldValue(field.name, date);
       }}
+      dateFormat="d MMM yyyy"
+      onChangeRaw={(e) => e.preventDefault()}
     />
   );
 }
