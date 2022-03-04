@@ -14,6 +14,7 @@ const customStyles = {
   }),
   control: (provided, state) => ({
     ...provided,
+    padding: ".4rem .6rem",
     boxShadow: "none",
     border: state.isFocused ? "1px solid #7C5DFA" : "1px solid lightFour",
     "&:hover": {
