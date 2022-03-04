@@ -84,9 +84,10 @@ export default function Form({ open, title }) {
           /> */}
 
           <FormInput
-            variant="text"
-            name="fromDetails.address"
+            variant="select"
+            name="toDetails.paymentTerms"
             label="Street Address"
+            options={formDetails.selectOptions}
           />
 
           <Button type="submit" variant="secondary" label="Submit" />

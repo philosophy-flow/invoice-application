@@ -56,7 +56,7 @@ const initialValues = {
     zipcode: "",
     country: "",
     invoiceDate: new Date(),
-    paymentTerms: selectOptions[0].value,
+    paymentTerms: selectOptions[3].value,
     projectDescription: "",
   },
   itemsList: [],
