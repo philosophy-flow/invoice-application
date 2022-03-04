@@ -13,22 +13,13 @@ function FormInput({
   let inputType;
   switch (variant) {
     case "text":
-      inputType = <Field id={name} name={name} placeholder={label} />;
+      inputType = "";
       break;
     case "select":
-      inputType = (
-        <Field
-          component={SelectField}
-          id={name}
-          name={name}
-          options={options}
-        />
-      );
+      inputType = SelectField;
       break;
     case "date":
-      inputType = (
-        <Field component={DateField} id={name} name={name} options={options} />
-      );
+      inputType = DateField;
       break;
     default:
       return <p>Invalid variant!</p>;
@@ -36,9 +27,24 @@ function FormInput({
 
   return (
     <div className="py-3 max-w-xs ">
-      <label htmlFor={name}>{label}</label>
-      {inputType}
-      <ErrorMessage name={name} />
+      <label
+        htmlFor={name}
+        className="block text-sm text-lightThree font-medium"
+      >
+        {label}
+      </label>
+      <Field
+        component={inputType}
+        id={name}
+        name={name}
+        options={options}
+        className="w-60 my-0.5 rounded border border-lightTwo text-sm px-5 py-4 font-bold text-darkFour outline-none caret-purple focus:border-purple "
+      />
+      <ErrorMessage
+        name={name}
+        component="p"
+        className="mt-0.5 text-sm font-medium text-lightThree"
+      />
     </div>
   );
 }

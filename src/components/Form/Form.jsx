@@ -28,7 +28,7 @@ export default function Form({ open, title }) {
         onSubmit={(vals) => handleSubmit(vals)}
       >
         <FormikForm className="m-5">
-          <h1 className="mt-6 text-lightOne text-lg">{title}</h1>
+          {/* <h1 className="mt-6 text-lightOne text-lg">{title}</h1>
           <h2>BILL FROM</h2>
           <FormInput
             variant="text"
@@ -81,6 +81,12 @@ export default function Form({ open, title }) {
             name="toDetails.projectDescription"
             label="Project Description"
             options={formDetails.selectOptions}
+          /> */}
+
+          <FormInput
+            variant="text"
+            name="fromDetails.address"
+            label="Street Address"
           />
 
           <Button type="submit" variant="secondary" label="Submit" />
