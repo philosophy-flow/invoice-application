@@ -85,14 +85,14 @@ export default function Form({ open, title }) {
 
           <FormInput
             variant="text"
-            name="toDetails.paymentTerms"
+            name="toDetails.address"
             label="Street Address"
           />
 
           <FormInput
             variant="select"
             name="toDetails.paymentTerms"
-            label="Street Address"
+            label="Payment Terms"
             options={formDetails.selectOptions}
           />
 

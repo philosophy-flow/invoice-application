@@ -8,7 +8,7 @@ import {
 
 import Invoices from "./pages/Invoices";
 import InvoiceDetail from "./pages/InvoiceDetail";
-import Form from "./components/Form/Form";
+import Form from "./components/Form";
 
 function App() {
   const [formState, setFormState] = useState({ active: false, title: "" });
