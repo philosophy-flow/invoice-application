@@ -85,7 +85,7 @@ export default function Form({ open, title }) {
 
           <FormInput
             variant="text"
-            name="toDetails.address"
+            name="fromDetails.address"
             label="Street Address"
           />
 
@@ -93,6 +93,13 @@ export default function Form({ open, title }) {
             variant="select"
             name="toDetails.paymentTerms"
             label="Payment Terms"
+            options={formDetails.selectOptions}
+          />
+
+          <FormInput
+            variant="date"
+            name="toDetails.invoiceDate"
+            label="Issue Date"
             options={formDetails.selectOptions}
           />
 

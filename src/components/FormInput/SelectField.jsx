@@ -42,7 +42,7 @@ function SelectField({ options, field, form }) {
       onChange={(option) => form.setFieldValue(field.name, option.value)}
       onBlur={field.onBlur}
       placeholder={options[3].label}
-      className="w-60 my-0.5 text-sm font-bold text-darkFour caret-purple"
+      className="w-full my-0.5 text-sm font-bold text-darkFour caret-purple"
       styles={customStyles}
     />
   );

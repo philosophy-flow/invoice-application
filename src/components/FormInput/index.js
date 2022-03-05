@@ -26,7 +26,7 @@ function FormInput({
   }
 
   return (
-    <div className="py-3 max-w-xs ">
+    <div className="w-60 py-3 max-w-xs">
       <label
         htmlFor={name}
         className="block text-sm text-lightThree font-medium"
@@ -38,7 +38,7 @@ function FormInput({
         id={name}
         name={name}
         options={options}
-        className="w-60 my-0.5 rounded border border-lightTwo text-sm px-5 py-4 font-bold text-darkFour outline-none caret-purple focus:border-purple"
+        className="w-full my-0.5 rounded border border-lightTwo text-sm px-5 py-4 font-bold text-darkFour outline-none caret-purple focus:border-purple"
       />
       <ErrorMessage
         name={name}
