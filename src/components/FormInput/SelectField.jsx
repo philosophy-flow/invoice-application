@@ -23,6 +23,7 @@ const customStyles = {
     "&:hover": {
       border: state.isFocused ? "1px solid #7C5DFA" : "1px solid lightFour",
     },
+    cursor: "pointer",
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,

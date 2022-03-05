@@ -35,7 +35,7 @@ function DateField({ field = {}, form = {} }) {
         }}
         dateFormat="d MMM yyyy"
         onChangeRaw={(e) => e.preventDefault()}
-        className="w-full my-0.5 px-5 py-4 text-sm font-bold text-darkFour caret-purple rounded border border-lightTwo outline-none focus:border-purple"
+        className="w-full my-0.5 px-5 py-4 text-sm font-bold text-darkFour caret-purple rounded border border-lightTwo outline-none focus:border-purple cursor-pointer"
       />
       {calendarIcon}
     </div>

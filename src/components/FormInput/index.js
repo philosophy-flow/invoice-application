@@ -38,7 +38,7 @@ function FormInput({
         id={name}
         name={name}
         options={options}
-        className="w-full my-0.5 rounded border border-lightTwo text-sm px-5 py-4 font-bold text-darkFour outline-none caret-purple focus:border-purple"
+        className="w-full my-0.5 rounded border border-lightTwo text-sm px-5 py-4 font-bold text-darkFour outline-none caret-purple focus:border-purple cursor-pointer"
       />
       <ErrorMessage
         name={name}
