@@ -11,6 +11,9 @@ const customStyles = {
     "&:last-child": {
       borderBottom: "none",
     },
+    "&:hover": {
+      cursor: state.isSelected ? "inherit" : "pointer",
+    },
   }),
   control: (provided, state) => ({
     ...provided,

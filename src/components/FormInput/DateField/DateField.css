@@ -1,0 +1,22 @@
+.react-datepicker__day--outside-month {
+  opacity: 0.08;
+}
+
+.react-datepicker__day--selected {
+  background-color: white;
+  color: #7c5dfa;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: inherit;
+  cursor: inherit;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #7c5dfa;
+  outline: #dfe3fa;
+}
+
+.react-datepicker__day--keyboard-selected:hover {
+  background-color: #7c5dfa;
+}
