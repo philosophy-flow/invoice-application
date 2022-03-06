@@ -9,7 +9,7 @@ const selectOptions = [
 
 let validationSchema = object({
   fromDetails: object({
-    address: string().required("Address required."),
+    address: string().required("can't be empty"),
     city: string().required(),
     zipcode: string()
       .matches(/^[0-9]{5}$/, "Enter a valid zip code.")
@@ -18,7 +18,7 @@ let validationSchema = object({
   }),
 
   toDetails: object({
-    name: string().required(),
+    name: string().required("cant be empty"),
     email: string().email().required(),
     address: string().required(),
     city: string().required(),

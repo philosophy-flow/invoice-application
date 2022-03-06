@@ -23,7 +23,7 @@ const icons = {
         stroke="#9277FF"
         stroke-width="2"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       />
     </svg>
   ),
@@ -34,7 +34,7 @@ const icons = {
         stroke="#7C5DFA"
         stroke-width="2"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       />
     </svg>
   ),

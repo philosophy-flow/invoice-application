@@ -27,84 +27,41 @@ export default function Form({ open, title }) {
         validationSchema={validationSchema}
         onSubmit={(vals) => handleSubmit(vals)}
       >
-        <FormikForm className="m-5">
-          {/* <h1 className="mt-6 text-lightOne text-lg">{title}</h1>
-          <h2>BILL FROM</h2>
-          <FormInput
-            variant="text"
-            name="fromDetails.address"
-            label="Street Address"
-          />
-          <FormInput variant="text" name="fromDetails.city" label="City" />
-          <FormInput
-            variant="text"
-            name="fromDetails.zipcode"
-            label="Zip Code"
-          />
-          <FormInput
-            variant="text"
-            name="fromDetails.country"
-            label="Country"
-          />
-          <h2>BILL TO</h2>
-          <FormInput
-            variant="text"
-            name="toDetails.name"
-            label="Client's Name"
-          />
-          <FormInput
-            variant="text"
-            name="toDetails.email"
-            label="Client's Email"
-          />
-          <FormInput
-            variant="text"
-            name="toDetails.address"
-            label="Street Address"
-          />
-          <FormInput variant="text" name="toDetails.city" label="City" />
-          <FormInput variant="text" name="toDetails.zipcode" label="Zip Code" />
-          <FormInput variant="text" name="toDetails.country" label="Country" />
-          <FormInput
-            variant="date"
-            name="toDetails.invoiceDate"
-            label="Invoice Date"
-          />
-          <FormInput
-            variant="select"
-            name="toDetails.paymentTerms"
-            label="Payment Terms"
-            options={formDetails.selectOptions}
-          />
-          <FormInput
-            variant="text"
-            name="toDetails.projectDescription"
-            label="Project Description"
-            options={formDetails.selectOptions}
-          /> */}
+        {({ errors, touched }) => (
+          <FormikForm className="m-5">
+            <FormInput
+              variant="text"
+              name="fromDetails.address"
+              label="Street Address"
+              error={errors.fromDetails?.address}
+              touched={touched.fromDetails?.address}
+            />
 
-          <FormInput
-            variant="text"
-            name="fromDetails.address"
-            label="Street Address"
-          />
+            <FormInput
+              variant="text"
+              name="toDetails.name"
+              label="Client's Name"
+              error={errors.toDetails?.name}
+              touched={touched.toDetails?.name}
+            />
 
-          <FormInput
-            variant="select"
-            name="toDetails.paymentTerms"
-            label="Payment Terms"
-            options={formDetails.selectOptions}
-          />
+            {/* <FormInput
+              variant="select"
+              name="toDetails.paymentTerms"
+              label="Payment Terms"
+              options={formDetails.selectOptions}
+            />
 
-          <FormInput
-            variant="date"
-            name="toDetails.invoiceDate"
-            label="Issue Date"
-            options={formDetails.selectOptions}
-          />
+            <FormInput
+              variant="date"
+              name="toDetails.invoiceDate"
+              label="Issue Date"
+              options={formDetails.selectOptions}
+            /> */}
 
-          <Button type="submit" variant="secondary" label="Submit" />
-        </FormikForm>
+            <Button type="submit" variant="secondary" label="Submit" />
+          </FormikForm>
+        )}
       </Formik>
     </div>
   );
