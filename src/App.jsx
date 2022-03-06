@@ -14,7 +14,7 @@ function App() {
   const [formState, setFormState] = useState({ active: false, title: "" });
 
   return (
-    <div className="min-h-screen h-fit bg-lightTwo relative overflow-scroll">
+    <div className="min-h-screen h-fit bg-lightOne relative overflow-scroll">
       <Router>
         <Routes>
           <Route

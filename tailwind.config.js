@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       spacing: {
         4.5: "1.125rem",
+        26: "6.5rem",
       },
     },
     fontFamily: {
@@ -31,6 +32,15 @@ module.exports = {
       lightFour: "#888EB0",
       black: "#000000",
       white: "#FFFFFF",
+
+      draftWidget: "#373B53",
+      draftWidgetBg: "rgba(55, 59, 83, 0.06)",
+
+      pendingWidget: "#FF8F00",
+      pendingWidgetBg: "rgba(255, 145, 0, 0.06)",
+
+      paidWidget: "#33D69F",
+      paidWidgetBg: "rgba(51, 215, 160, 0.06)",
     },
   },
   plugins: [],
