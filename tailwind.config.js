@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        4.5: "1.125rem",
+      },
+    },
     fontFamily: {
       sans: "Spartan, sans-serif",
     },
@@ -16,7 +20,7 @@ module.exports = {
       purple: "#7C5DFA",
       lightPurple: "#9277FF",
       red: "#EC5757",
-      lightRed: "#9277FF",
+      lightRed: "#FF9797",
       darkOne: "#252945",
       darkTwo: "#1E2139",
       darkThree: "#141625",
@@ -25,6 +29,8 @@ module.exports = {
       lightTwo: "#DFE3FA",
       lightThree: "#7E88C3",
       lightFour: "#888EB0",
+      black: "#000000",
+      white: "#FFFFFF",
     },
   },
   plugins: [],

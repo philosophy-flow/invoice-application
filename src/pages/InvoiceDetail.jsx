@@ -1,15 +1,17 @@
 import React from "react";
+import Button from "../components/Button";
 
 function InvoiceDetail({ handleForm }) {
   return (
-    <div className="min-h-screen bg-lightTwo">
-      <button
-        className="bg-purple  p-3 rounded-full absolute bottom-4 right-4"
-        onClick={() => handleForm({ active: true, title: "Edit Invoice" })}
-      >
-        Edit Invoice
-      </button>
-    </div>
+    <main>
+      <div className="fixed bottom-4 right-4">
+        <Button
+          variant="primary"
+          label="Edit Invoice"
+          onClick={() => handleForm({ active: true, title: "Edit Invoice" })}
+        />
+      </div>
+    </main>
   );
 }
 

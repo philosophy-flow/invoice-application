@@ -8,13 +8,13 @@ import {
 
 import Invoices from "./pages/Invoices";
 import InvoiceDetail from "./pages/InvoiceDetail";
-import Form from "./Form";
+import Form from "./components/Form";
 
 function App() {
   const [formState, setFormState] = useState({ active: false, title: "" });
 
   return (
-    <>
+    <div className="min-h-screen h-fit bg-lightTwo relative overflow-scroll">
       <Router>
         <Routes>
           <Route
@@ -29,7 +29,7 @@ function App() {
         </Routes>
       </Router>
       <Form open={formState.active} title={formState.title} />
-    </>
+    </div>
   );
 }
 
