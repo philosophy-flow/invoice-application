@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../components/Button";
 
 import InvoiceCard from "../components/InvoiceCard";
+import StatusCard from "../components/StatusCard";
 
 const sampleData = {
   id: "RT3080",
@@ -45,6 +46,8 @@ function Invoices({ handleForm }) {
         total={sampleData.total}
         status={sampleData.status}
       />
+      <br />
+      <StatusCard status={sampleData.status} />
       <div className="fixed bottom-4 right-4">
         <Button
           variant="primary-icon"

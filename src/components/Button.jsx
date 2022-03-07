@@ -17,6 +17,7 @@ function Button({
   label = "Button",
   onClick = () => null,
   type = "button",
+  className = "",
 }) {
   let style;
   switch (variant) {
@@ -41,7 +42,7 @@ function Button({
 
   return (
     <button
-      className={`relative py-4 px-6 rounded-3xl font-bold text-sm ${style}`}
+      className={`relative py-4 px-6 rounded-3xl font-bold text-sm ${style} ${className}`}
       onClick={onClick}
       type={type}
     >
