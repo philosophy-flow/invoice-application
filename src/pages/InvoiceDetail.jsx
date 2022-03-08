@@ -3,7 +3,7 @@ import Button from "../components/Button";
 
 function InvoiceDetail({ handleForm }) {
   return (
-    <main>
+    <>
       <div className="fixed bottom-4 right-4">
         <Button
           variant="primary"
@@ -11,7 +11,7 @@ function InvoiceDetail({ handleForm }) {
           onClick={() => handleForm({ active: true, title: "Edit Invoice" })}
         />
       </div>
-    </main>
+    </>
   );
 }
 

@@ -38,7 +38,7 @@ const sampleData = {
 
 function Invoices({ handleForm }) {
   return (
-    <main className="px-6 py-8">
+    <>
       <InvoiceCard
         id={sampleData.id}
         paymentDue={sampleData.paymentDue}
@@ -55,7 +55,7 @@ function Invoices({ handleForm }) {
           onClick={() => handleForm({ active: true, title: "New Invoice" })}
         />
       </div>
-    </main>
+    </>
   );
 }
 
