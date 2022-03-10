@@ -1,8 +1,11 @@
 import React from "react";
-import Button from "../components/Button";
 
+import { scrollToTop } from "../helpers";
+
+import Button from "../components/Button";
 import InvoiceCard from "../components/InvoiceCard";
 import StatusCard from "../components/StatusCard";
+import DetailCard from "../components/DetailCard";
 
 const sampleData = {
   id: "RT3080",
@@ -37,6 +40,11 @@ const sampleData = {
 };
 
 function Invoices({ handleForm }) {
+  const handleClick = () => {
+    scrollToTop();
+    handleForm({ active: true, title: "New Invoice" });
+  };
+
   return (
     <>
       <InvoiceCard
@@ -48,11 +56,13 @@ function Invoices({ handleForm }) {
       />
       <br />
       <StatusCard status={sampleData.status} />
+      <br />
+      <DetailCard invoice={sampleData} />
       <div className="fixed bottom-4 right-4">
         <Button
           variant="primary-icon"
           label="Add Invoice"
-          onClick={() => handleForm({ active: true, title: "New Invoice" })}
+          onClick={handleClick}
         />
       </div>
     </>

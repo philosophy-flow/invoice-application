@@ -10,7 +10,7 @@ import InvoiceDetail from "./InvoiceDetail";
 
 export default function Pages({ setFormState }) {
   return (
-    <main className="border border-red px-6 py-8">
+    <main className="px-6 py-8">
       <Router>
         <Routes>
           <Route

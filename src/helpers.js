@@ -24,3 +24,10 @@ export const formatDate = (date) => {
 
   return `${day} ${month} ${year}`;
 };
+
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};

@@ -11,7 +11,10 @@ function ReceiptCard({ items = [], total = "0.00" }) {
           <p className="table-cell">Total</p>
         </div>
         {items.map((item) => (
-          <div className="flex justify-between items-center mb-6 last:mb-0 sm:table-row">
+          <div
+            key={item.name}
+            className="flex justify-between items-center mb-6 last:mb-0 sm:table-row"
+          >
             <div className="sm:table-cell">
               <h2 className="text-sm font-bold mb-2">{item.name}</h2>
               <p className="text-lightThree text-sm font-bold sm:hidden">
