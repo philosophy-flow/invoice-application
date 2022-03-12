@@ -1,7 +1,7 @@
 import React from "react";
 import StatusWidget from "./StatusWidget";
 
-import { formatDate } from "../helpers";
+import { formatDate } from "../util/helpers";
 
 function InvoiceCard({
   id = "",
