@@ -7,8 +7,9 @@ import Button from "../components/Button";
 import InvoiceCard from "../components/InvoiceCard";
 import StatusCard from "../components/StatusCard";
 import DetailCard from "../components/DetailCard";
+import ControlPanel from "../components/ControlPanel";
 
-function Invoices({ handleForm }) {
+export default function Invoices({ handleForm }) {
   const handleClick = () => {
     scrollToTop();
     handleForm({ active: true, title: "New Invoice" });
@@ -16,6 +17,7 @@ function Invoices({ handleForm }) {
 
   return (
     <>
+      <ControlPanel />
       <InvoiceCard
         id={sampleData.id}
         paymentDue={sampleData.paymentDue}
@@ -37,5 +39,3 @@ function Invoices({ handleForm }) {
     </>
   );
 }
-
-export default Invoices;
