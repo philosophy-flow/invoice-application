@@ -10,7 +10,7 @@ const { validationSchema, initialValues } = formDetails;
 export default function Form({ open, title }) {
   // temporary background color
   let style =
-    "bg-lightRed min-h-screen overflow-scroll absolute top-0 -left-full transition-all duration-300 w-full sm:rounded-r-xl sm:w-1/2 sm:-left-1/2 xl:w-1/3 xl:-left-1/3";
+    "bg-lightRed min-h-screen h-full overflow-scroll absolute top-0 -left-full transition-all duration-300 w-full sm:rounded-r-xl sm:w-1/2 sm:-left-1/2 xl:w-1/3 xl:-left-1/3";
 
   const handleSubmit = (vals) => {
     const formValues = {
@@ -44,20 +44,6 @@ export default function Form({ open, title }) {
               error={errors.toDetails?.name}
               touched={touched.toDetails?.name}
             />
-
-            {/* <FormInput
-              variant="select"
-              name="toDetails.paymentTerms"
-              label="Payment Terms"
-              options={formDetails.selectOptions}
-            />
-
-            <FormInput
-              variant="date"
-              name="toDetails.invoiceDate"
-              label="Issue Date"
-              options={formDetails.selectOptions}
-            /> */}
 
             <Button type="submit" variant="secondary" label="Submit" />
           </FormikForm>
