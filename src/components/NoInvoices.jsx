@@ -4,7 +4,7 @@ import IllustrationEmpty from "../assets/svg/IllustrationEmpty";
 export default function NoInvoices() {
   return (
     <>
-      <div className="border border-red mx-16 mt-17 mb-10">
+      <div className="mx-16 mt-17 mb-10">
         <IllustrationEmpty />
       </div>
       <div className="text-center mx-13">

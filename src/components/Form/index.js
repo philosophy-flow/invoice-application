@@ -7,7 +7,7 @@ import Button from "../Button";
 
 const { validationSchema, initialValues } = formDetails;
 
-export default function Form({ open, title }) {
+export default function Form({ open = false, title = "Form" }) {
   // temporary background color
   let style =
     "bg-lightRed min-h-screen h-full overflow-scroll absolute top-0 -left-full transition-all duration-300 w-full sm:rounded-r-xl sm:w-1/2 sm:-left-1/2 xl:w-1/3 xl:-left-1/3";
@@ -27,27 +27,29 @@ export default function Form({ open, title }) {
         validationSchema={validationSchema}
         onSubmit={(vals) => handleSubmit(vals)}
       >
-        {({ errors, touched }) => (
-          <FormikForm className="m-5">
-            <FormInput
-              variant="text"
-              name="fromDetails.address"
-              label="Street Address"
-              error={errors.fromDetails?.address}
-              touched={touched.fromDetails?.address}
-            />
+        {open &&
+          (({ errors, touched }) => (
+            <FormikForm className="m-5" aria-label="form">
+              <h2>{title}</h2>
+              <FormInput
+                variant="text"
+                name="fromDetails.address"
+                label="Street Address"
+                error={errors.fromDetails?.address}
+                touched={touched.fromDetails?.address}
+              />
 
-            <FormInput
-              variant="text"
-              name="toDetails.name"
-              label="Client's Name"
-              error={errors.toDetails?.name}
-              touched={touched.toDetails?.name}
-            />
+              <FormInput
+                variant="text"
+                name="toDetails.name"
+                label="Client's Name"
+                error={errors.toDetails?.name}
+                touched={touched.toDetails?.name}
+              />
 
-            <Button type="submit" variant="secondary" label="Submit" />
-          </FormikForm>
-        )}
+              <Button type="submit" variant="secondary" label="Submit" />
+            </FormikForm>
+          ))}
       </Formik>
     </div>
   );
