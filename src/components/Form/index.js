@@ -45,20 +45,6 @@ export default function Form({ open, title }) {
               touched={touched.toDetails?.name}
             />
 
-            {/* <FormInput
-              variant="select"
-              name="toDetails.paymentTerms"
-              label="Payment Terms"
-              options={formDetails.selectOptions}
-            />
-
-            <FormInput
-              variant="date"
-              name="toDetails.invoiceDate"
-              label="Issue Date"
-              options={formDetails.selectOptions}
-            /> */}
-
             <Button type="submit" variant="secondary" label="Submit" />
           </FormikForm>
         )}
