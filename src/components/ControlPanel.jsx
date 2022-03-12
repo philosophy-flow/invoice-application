@@ -2,7 +2,6 @@ import React from "react";
 import Button from "./Button";
 
 export default function ControlPanel({ invoiceCount = 0 }) {
-  console.log(invoiceCount);
   return (
     <div className="mb-8 flex justify-between items-center">
       <div>

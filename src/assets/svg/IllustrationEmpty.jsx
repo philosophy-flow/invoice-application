@@ -3,7 +3,7 @@ import React from "react";
 const IllustrationEmpty = () => (
   // w 242 h 200
   <svg width="100%" viewBox="0 0 242 200" xmlns="http://www.w3.org/2000/svg">
-    <g fill-rule="nonzero" fill="none">
+    <g fillRule="nonzero" fill="none">
       <path
         fill="#E6E7E8"
         d="M31.136 83.879l85.035-53.67 85.036 53.67v78.304H31.136z"

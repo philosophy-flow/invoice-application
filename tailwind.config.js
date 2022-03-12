@@ -45,6 +45,8 @@ module.exports = {
 
       paidWidget: "#33D69F",
       paidWidgetBg: "rgba(51, 215, 160, 0.06)",
+
+      modalBg: "rgba(0, 0, 0, 0.5)",
     },
   },
   plugins: [],
