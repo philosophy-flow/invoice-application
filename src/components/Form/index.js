@@ -8,9 +8,8 @@ import Button from "../Button";
 const { validationSchema, initialValues } = formDetails;
 
 export default function Form({ open = false, title = "Form" }) {
-  // temporary background color
   let style =
-    "bg-lightRed min-h-screen h-full overflow-scroll absolute top-0 -left-full transition-all duration-300 w-full sm:rounded-r-xl sm:w-1/2 sm:-left-1/2 xl:w-1/3 xl:-left-1/3";
+    "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full sm:top-20 sm:rounded-r-xl sm:w-4/5 sm:-left-[80%] lg:w-1/2 lg:-left-1/2 lg:top-0 lg:pl-[9.9375rem]";
 
   const handleSubmit = (vals) => {
     const formValues = {
@@ -21,36 +20,43 @@ export default function Form({ open = false, title = "Form" }) {
   };
 
   return (
-    <div className={open ? style + " translate-x-full" : style}>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={(vals) => handleSubmit(vals)}
-      >
-        {open &&
-          (({ errors, touched }) => (
-            <FormikForm className="m-5" aria-label="form">
-              <h2>{title}</h2>
-              <FormInput
-                variant="text"
-                name="fromDetails.address"
-                label="Street Address"
-                error={errors.fromDetails?.address}
-                touched={touched.fromDetails?.address}
-              />
+    <>
+      <div
+        className={`fixed top-0 left-0 right-0 min-h-screen h-full bg-modalBg ${
+          open ? "block" : "hidden"
+        }`}
+      ></div>
+      <div className={open ? style + " translate-x-full" : style}>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={(vals) => handleSubmit(vals)}
+        >
+          {open &&
+            (({ errors, touched }) => (
+              <FormikForm className="m-5" aria-label="form">
+                <h2>{title}</h2>
+                <FormInput
+                  variant="text"
+                  name="fromDetails.address"
+                  label="Street Address"
+                  error={errors.fromDetails?.address}
+                  touched={touched.fromDetails?.address}
+                />
 
-              <FormInput
-                variant="text"
-                name="toDetails.name"
-                label="Client's Name"
-                error={errors.toDetails?.name}
-                touched={touched.toDetails?.name}
-              />
+                <FormInput
+                  variant="text"
+                  name="toDetails.name"
+                  label="Client's Name"
+                  error={errors.toDetails?.name}
+                  touched={touched.toDetails?.name}
+                />
 
-              <Button type="submit" variant="secondary" label="Submit" />
-            </FormikForm>
-          ))}
-      </Formik>
-    </div>
+                <Button type="submit" variant="secondary" label="Submit" />
+              </FormikForm>
+            ))}
+        </Formik>
+      </div>
+    </>
   );
 }

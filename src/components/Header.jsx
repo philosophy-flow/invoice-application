@@ -6,7 +6,7 @@ import Avatar from "../assets/img/avatar.jpg";
 
 function Header() {
   return (
-    <div className="fixed h-17.5 w-full z-10 bg-draftWidget flex justify-between items-center md:h-20 lg:w-[6.4375rem] lg:h-screen lg:flex-col lg:rounded-r-[28px]">
+    <div className="fixed h-17.5 w-full z-10 bg-draftWidget flex justify-between items-center sm:h-20 lg:w-[6.4375rem] lg:h-screen lg:flex-col lg:rounded-r-[28px]">
       <div className="h-full lg:w-full lg:h-auto">
         <img src={HeaderIcon} className="h-full lg:w-full" alt="icon" />
       </div>

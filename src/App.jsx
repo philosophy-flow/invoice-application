@@ -7,7 +7,7 @@ export default function App() {
   const [formState, setFormState] = useState({ active: false, title: "" });
 
   return (
-    <div className="min-h-screen h-fit bg-lightOne relative overflow-scroll">
+    <div className="min-h-screen h-fit bg-lightOne">
       <Header />
       <Pages setFormState={setFormState} />
       <Form open={formState.active} title={formState.title} />
