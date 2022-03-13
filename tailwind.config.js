@@ -7,6 +7,7 @@ module.exports = {
         7.5: "1.875rem",
         13: "3.25rem",
         17: "4.375rem",
+        17.5: "4.5rem",
         18: "4.625rem",
         26: "6.5rem",
       },
@@ -47,6 +48,7 @@ module.exports = {
       paidWidgetBg: "rgba(51, 215, 160, 0.06)",
 
       modalBg: "rgba(0, 0, 0, 0.5)",
+      headerBorder: "#494E6E",
     },
   },
   plugins: [],
