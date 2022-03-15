@@ -1,50 +1,28 @@
 import React from "react";
 
-import { scrollToTop } from "../util/helpers";
-import { sampleData } from "../util/constants";
-
-import Button from "../components/Button";
 import InvoiceCard from "../components/InvoiceCard";
-import StatusCard from "../components/StatusCard";
-import DetailCard from "../components/DetailCard";
 import ControlPanel from "../components/ControlPanel";
 import NoInvoices from "../components/NoInvoices";
 
-export default function Invoices({ handleForm }) {
-  const handleClick = () => {
-    scrollToTop();
-    handleForm({ active: true, title: "New Invoice" });
-  };
-
-  let invoiceLength = 0;
+export default function Invoices({ invoices = [], setFormState }) {
+  const invoicesJSX = invoices.map((invoice) => (
+    <InvoiceCard
+      key={invoice.id}
+      id={invoice.id}
+      paymentDue={invoice.paymentDue}
+      clientName={invoice.clientName}
+      total={invoice.total}
+      status={invoice.status}
+    />
+  ));
 
   return (
     <>
-      <ControlPanel invoiceCount={invoiceLength} />
-      {invoiceLength ? (
-        <>
-          <InvoiceCard
-            id={sampleData.id}
-            paymentDue={sampleData.paymentDue}
-            clientName={sampleData.clientName}
-            total={sampleData.total}
-            status={sampleData.status}
-          />
-          <br />
-          <StatusCard status={sampleData.status} />
-          <br />
-          <DetailCard invoice={sampleData} />
-          <div className="fixed bottom-4 right-4">
-            <Button
-              variant="primary-icon"
-              label="Add Invoice"
-              onClick={handleClick}
-            />
-          </div>
-        </>
-      ) : (
-        <NoInvoices />
-      )}
+      <ControlPanel
+        invoiceCount={invoices.length}
+        setFormState={setFormState}
+      />
+      {invoices.length ? invoicesJSX : <NoInvoices />}
     </>
   );
 }

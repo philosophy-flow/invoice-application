@@ -1,14 +1,14 @@
 import React from "react";
 
-export default function StatusWidget({ status = "Draft" }) {
+export default function StatusWidget({ status = "draft" }) {
   let style;
   let circleStyle;
   switch (status) {
-    case "Pending":
+    case "pending":
       style = "text-pendingWidget bg-pendingWidgetBg";
       circleStyle = "bg-pendingWidget";
       break;
-    case "Paid":
+    case "paid":
       style = "text-paidWidget bg-paidWidgetBg";
       circleStyle = "bg-paidWidget";
       break;

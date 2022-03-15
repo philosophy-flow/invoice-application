@@ -15,7 +15,7 @@ export default function DetailCard({ invoice }) {
   } = invoice;
   return (
     <div className="bg-white rounded-lg p-6 text-lightFour text-sm font-medium shadow-sm">
-      <section className="mb-7.5 sm:flex justify-between sm:mb-5">
+      <section className="mb-7.5 md:flex justify-between md:mb-5">
         <div className="mb-7.5">
           <h1 className="text-darkFour font-bold mb-1">
             <span className="text-lightFour">#</span>
@@ -31,8 +31,8 @@ export default function DetailCard({ invoice }) {
         </div>
       </section>
 
-      <section className="flex flex-wrap mb-10 sm:justify-between">
-        <div className="mb-8 w-1/2 sm:w-fit">
+      <section className="flex flex-wrap mb-10 md:justify-between">
+        <div className="mb-8 w-1/2 md:w-fit">
           <div className="mb-8">
             <label>Invoice Date</label>
             <h2 className="text-md text-darkFour font-bold mt-3">
@@ -47,7 +47,7 @@ export default function DetailCard({ invoice }) {
           </div>
         </div>
 
-        <div className="w-1/2 sm:w-fit">
+        <div className="w-1/2 md:w-fit">
           <label>Bill To</label>
           <h2 className="text-md text-darkFour font-bold mt-3 mb-2">
             {clientName}
@@ -59,7 +59,7 @@ export default function DetailCard({ invoice }) {
             <p>{clientAddress.country}</p>
           </div>
         </div>
-        <div className="sm:mr-18">
+        <div className="md:mr-18">
           <label>Sent to</label>
           <h2 className="text-md text-darkFour font-bold mt-3">
             {clientEmail}

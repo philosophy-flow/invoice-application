@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form as FormikForm } from "formik";
 
 import formDetails from "./formDetails";
@@ -7,9 +7,15 @@ import Button from "../Button";
 
 const { validationSchema, initialValues } = formDetails;
 
-export default function Form({ open = false, title = "Form" }) {
+export default function Form({ open = false, title = "Form", setFormState }) {
+  useEffect(() => {
+    document.getElementById("overlay").addEventListener("click", () => {
+      setFormState({ open: false, title: "" });
+    });
+  }, [setFormState]);
+
   let style =
-    "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full sm:top-20 sm:rounded-r-xl sm:w-4/5 sm:-left-[80%] lg:w-1/2 lg:-left-1/2 lg:top-0 lg:pl-[9.9375rem]";
+    "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full overflow-scroll md:top-20 md:rounded-r-xl md:w-4/5 md:-left-[80%] xl:w-1/2 xl:-left-1/2 xl:top-0 xl:pl-[9.9375rem]";
 
   const handleSubmit = (vals) => {
     const formValues = {
@@ -22,6 +28,7 @@ export default function Form({ open = false, title = "Form" }) {
   return (
     <>
       <div
+        id="overlay"
         className={`fixed top-0 left-0 right-0 min-h-screen h-full bg-modalBg ${
           open ? "block" : "hidden"
         }`}

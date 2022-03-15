@@ -8,14 +8,16 @@ import {
 import Invoices from "./Invoices";
 import InvoiceDetail from "./InvoiceDetail";
 
-export default function Pages({ setFormState }) {
+export default function Pages({ setFormState, invoices = [] }) {
   return (
-    <main className="px-6 pt-[6.375rem] pb-8 lg:pt-16 lg:px-[25%]">
+    <main className="px-[6.4%] pt-[6.375rem] pb-8 md:pt-[8.5rem] xl:px-[25%] xl:pt-[4.5rem]">
       <Router>
         <Routes>
           <Route
             path="/invoices"
-            element={<Invoices handleForm={setFormState} />}
+            element={
+              <Invoices invoices={invoices} setFormState={setFormState} />
+            }
           />
           <Route
             path="/invoices/:invoiceId"
