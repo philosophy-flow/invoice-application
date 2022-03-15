@@ -1,7 +1,7 @@
 import React from "react";
 import StatusWidget from "./StatusWidget";
 
-import { formatDate } from "../util/helpers";
+import { formatDate, formatMoney } from "../util/helpers";
 
 function InvoiceCard({
   id = "",
@@ -24,7 +24,7 @@ function InvoiceCard({
       </p>
       <p className="order-5 w-1/2 text-sm text-darkFour font-bold relative -top-4 md:w-fit md:static md:order-4 md:mr-10">
         <span>$</span>
-        {total}
+        {formatMoney(total)}
       </p>
       <span className="order-4 w-1/2 flex justify-end md:w-fit md:order-5">
         <StatusWidget status={status} />

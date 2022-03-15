@@ -1,4 +1,5 @@
 import React from "react";
+import { capitalize } from "../util/helpers";
 
 export default function StatusWidget({ status = "draft" }) {
   let style;
@@ -23,7 +24,7 @@ export default function StatusWidget({ status = "draft" }) {
       className={`w-26 h-10 rounded-md flex justify-center items-center font-bold text-sm ${style}`}
     >
       <div className={`w-2 h-2 rounded-full mr-2 ${circleStyle}`}></div>
-      {status}
+      {capitalize(status)}
     </div>
   );
 }
