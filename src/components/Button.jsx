@@ -28,7 +28,7 @@ function Button({
       style = "bg-purple text-white pl-14";
       break;
     case "back":
-      style = "text-darkFour text-sm flex items-center";
+      style = "text-darkFour text-sm flex items-center px-0 py-0";
       break;
     case "filter":
       style = "text-darkFour text-sm flex items-center";
