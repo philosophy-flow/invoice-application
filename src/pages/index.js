@@ -15,7 +15,7 @@ export default function Pages({
   setActiveInvoice,
 }) {
   return (
-    <main className="px-[6.4%] pt-[6.375rem] pb-8 md:pt-[8.5rem] xl:px-[25%] xl:pt-[4.5rem]">
+    <main className="relative px-[6.4%] pt-[6.375rem] pb-[6.5rem] md:pt-[8.5rem] xl:px-[25%] xl:pt-[4.5rem]">
       <Router>
         <Routes>
           <Route

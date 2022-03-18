@@ -15,7 +15,7 @@ function InvoiceCard({ invoice, setActiveInvoice = () => null }) {
 
   return (
     <div
-      className="relative bg-white p-6 pb-0 mb-4 flex flex-wrap rounded-lg shadow-sm cursor-pointer md:justify-between md:items-center md:pb-6"
+      className="relative bg-white p-6 pb-0 mb-4 flex flex-wrap rounded-lg shadow-sm cursor-pointer md:justify-between md:items-center md:pb-6 last:mb-0"
       onClick={() => handleInvoiceSelection()}
     >
       <h2 className="order-1 w-1/2 mb-6 text-sm text-darkFour font-bold md:mr-0 md:mb-0 md:w-1/5">
