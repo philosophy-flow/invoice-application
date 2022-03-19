@@ -1,65 +1,64 @@
 import { object, string, number, date, array } from "yup";
 
 const selectOptions = [
-  { value: "day", label: "Net 1 Day" },
-  { value: "week", label: "Net 7 Days" },
-  { value: "fortnight", label: "Net 14 Days" },
-  { value: "month", label: "Net 30 Days" },
+  { value: 1, label: "Net 1 Day" },
+  { value: 7, label: "Net 7 Days" },
+  { value: 14, label: "Net 14 Days" },
+  { value: 30, label: "Net 30 Days" },
 ];
 
 let validationSchema = object({
-  fromDetails: object({
-    address: string().required("can't be empty"),
-    city: string().required(),
+  createdAt: date().required("can't be empty"),
+  description: string().required("can't be empty"),
+  paymentTerms: number().required("can't be empty"),
+  clientName: string().required("can't be empty"),
+  clientEmail: string().email().required("can't be empty"),
+  senderAddress: object({
+    street: string().required("can't be empty"),
+    city: string().required("can't be empty"),
     zipcode: string()
       .matches(/^[0-9]{5}$/, "Enter a valid zip code.")
       .required(),
-    country: string().required(),
+    country: string().required("can't be empty"),
   }),
-
-  toDetails: object({
-    name: string().required("cant be empty"),
-    email: string().email().required(),
-    address: string().required(),
-    city: string().required(),
+  clientAddress: object({
+    street: string().required("can't be empty"),
+    city: string().required("can't be empty"),
     zipcode: string()
-      .required()
-      .matches(/^[0-9]{5}$/, "Enter a valid zip code."),
-    country: string().required(),
-    invoiceDate: date().required(),
-    paymentTerms: string().required(),
-    projectDescription: string().required(),
+      .matches(/^[0-9]{5}$/, "Enter a valid zip code.")
+      .required(),
+    country: string().required("can't be empty"),
   }),
-
-  itemsList: array().of(
+  items: array().of(
     object({
-      name: string().required(),
-      quantity: number().required().min(1).max(99),
-      price: number().required(),
+      name: string().required("can't be empty"),
+      quantity: number().required("can't be empty").min(1).max(99),
+      price: number().required("can't be empty"),
     })
   ),
+  total: number().required("can't be empty"),
 });
 
 const initialValues = {
-  fromDetails: {
-    address: "",
+  createdAt: new Date(),
+  description: "",
+  paymentTerms: 30,
+  clientName: "",
+  clientEmail: "",
+  senderAddress: {
+    street: "",
+    city: "",
+    postCode: "",
+    country: "",
+  },
+  clientAddress: {
+    street: "",
     city: "",
     zipcode: "",
     country: "",
   },
-
-  toDetails: {
-    name: "",
-    email: "",
-    address: "",
-    city: "",
-    zipcode: "",
-    country: "",
-    invoiceDate: new Date(),
-    paymentTerms: selectOptions[3].value,
-    projectDescription: "",
-  },
-  itemsList: [],
+  items: [],
+  total: 1800.9,
 };
 
 const formDetails = { validationSchema, initialValues, selectOptions };

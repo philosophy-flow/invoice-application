@@ -1,5 +1,5 @@
 export const formatDate = (date) => {
-  // yyyy-mm-dd -> dd MMM yyyy
+  // yyyy/mm/dd -> dd MMM yyyy
   const months = [
     "Jan",
     "Feb",
@@ -15,7 +15,7 @@ export const formatDate = (date) => {
     "Dec",
   ];
 
-  const dateArr = date.split("-");
+  const dateArr = date.split("/");
   const year = dateArr[0];
   const day = dateArr[2];
 
