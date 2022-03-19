@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-export default function ControlPanel({ invoiceCount = 0, setFormState }) {
+export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
   let countText;
   switch (invoiceCount) {
     case 0:
@@ -15,7 +15,7 @@ export default function ControlPanel({ invoiceCount = 0, setFormState }) {
   }
 
   const handleFormOpen = () => {
-    setFormState({ active: true, title: "New Invoice" });
+    setFormActive(true);
     document.body.style.overflow = "hidden";
   };
 

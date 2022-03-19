@@ -6,7 +6,7 @@ import NoInvoices from "../components/NoInvoices";
 
 export default function Invoices({
   invoices = [],
-  setFormState,
+  setFormActive,
   setActiveInvoice,
 }) {
   const invoicesJSX = invoices.map((invoice) => (
@@ -21,7 +21,7 @@ export default function Invoices({
     <>
       <ControlPanel
         invoiceCount={invoices.length}
-        setFormState={setFormState}
+        setFormActive={setFormActive}
       />
       {invoices.length ? invoicesJSX : <NoInvoices />}
     </>

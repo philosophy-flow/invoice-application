@@ -8,7 +8,7 @@ import DeleteInvoice from "../components/DeleteInvoice";
 
 import { sampleData } from "../util/constants";
 
-function InvoiceDetail({ handleForm, activeInvoice }) {
+function InvoiceDetail({ handleForm, activeInvoice, setActiveInvoice }) {
   const { id, status } = activeInvoice;
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -17,9 +17,12 @@ function InvoiceDetail({ handleForm, activeInvoice }) {
     if (!id) {
       navigate("/invoices");
     }
-  }, [id, navigate]);
+  }, [id, navigate, setActiveInvoice]);
 
-  const handleBack = () => navigate("/invoices");
+  const handleBack = () => {
+    setActiveInvoice({});
+    navigate("/invoices");
+  };
 
   return (
     <>
