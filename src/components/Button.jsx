@@ -13,33 +13,33 @@ function Button({
   let style;
   switch (variant) {
     case "primary":
-      style = "bg-purple text-white";
+      style = "bg-purple text-white py-4 px-6";
       break;
     case "secondary":
-      style = "bg-lightOne text-lightThree";
+      style = "bg-lightOne text-lightThree py-4 px-6";
       break;
     case "dark":
-      style = "bg-darkTwo text-lightFour";
+      style = "bg-darkTwo text-lightFour py-4 px-6";
       break;
     case "danger":
-      style = "bg-red text-white";
+      style = "bg-red text-white py-4 px-6";
       break;
     case "primary-icon":
-      style = "bg-purple text-white pl-14";
+      style = "bg-purple text-white py-4 pr-6 pl-14";
       break;
     case "back":
-      style = "text-darkFour text-sm flex items-center";
+      style = "text-darkFour text-sm flex items-center px-0 py-0";
       break;
     case "filter":
-      style = "text-darkFour text-sm flex items-center";
+      style = "text-darkFour text-sm flex items-center py-4 px-4.5";
       break;
     default:
-      style = "text-darkFour text-sm flex items-center";
+      style = "text-darkFour text-sm flex items-center py-4 px-6";
   }
 
   return (
     <button
-      className={`relative py-4 px-6 rounded-3xl font-bold text-sm ${style} ${className}`}
+      className={`relative rounded-3xl font-bold text-sm ${style} ${className}`}
       onClick={onClick}
       type={type}
     >

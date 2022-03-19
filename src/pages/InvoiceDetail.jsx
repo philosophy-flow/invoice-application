@@ -1,36 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../components/Button";
+import StatusCard from "../components/StatusCard";
+import DetailCard from "../components/DetailCard";
 import DeleteInvoice from "../components/DeleteInvoice";
 
 import { sampleData } from "../util/constants";
 
-function InvoiceDetail({ handleForm }) {
+function InvoiceDetail({ handleForm, activeInvoice }) {
+  const { id, status } = activeInvoice;
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!id) {
+      navigate("/invoices");
+    }
+  }, [id, navigate]);
 
   const handleBack = () => navigate("/invoices");
 
   return (
     <>
-      <div>
-        <Button variant="back" label="Go Back" onClick={handleBack} />
+      <Button variant="back" label="Go Back" onClick={handleBack} />
+      <div className="mt-8 mb-4">
+        <StatusCard status={status} />
       </div>
-      <div className="fixed bottom-4 left-4">
-        <Button
-          variant="primary"
-          label="Edit Invoice"
-          onClick={() => handleForm({ active: true, title: "Edit Invoice" })}
-        />
+      <div className="mb-11">
+        <DetailCard invoice={activeInvoice} />
       </div>
-      <div className="fixed bottom-4 right-4">
-        <Button
-          variant="danger"
-          label="Delete Invoice"
-          onClick={() => setModalOpen(true)}
-        />
+
+      <div className="absolute left-0 right-0 bottom-0 h-[5.75rem] bg-white shadow-sm px-[6.4%] md:hidden">
+        <div className="flex justify-between items-center h-full">
+          <Button variant="secondary" label="Edit" />
+          <Button variant="danger" label="Delete" />
+          <Button variant="primary" label="Mark as Paid" />
+        </div>
       </div>
+
       <DeleteInvoice
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}

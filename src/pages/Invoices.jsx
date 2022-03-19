@@ -4,15 +4,16 @@ import InvoiceCard from "../components/InvoiceCard";
 import ControlPanel from "../components/ControlPanel";
 import NoInvoices from "../components/NoInvoices";
 
-export default function Invoices({ invoices = [], setFormState }) {
+export default function Invoices({
+  invoices = [],
+  setFormState,
+  setActiveInvoice,
+}) {
   const invoicesJSX = invoices.map((invoice) => (
     <InvoiceCard
       key={invoice.id}
-      id={invoice.id}
-      paymentDue={invoice.paymentDue}
-      clientName={invoice.clientName}
-      total={invoice.total}
-      status={invoice.status}
+      invoice={invoice}
+      setActiveInvoice={setActiveInvoice}
     />
   ));
 

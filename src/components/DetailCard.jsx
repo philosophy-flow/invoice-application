@@ -3,15 +3,16 @@ import ReceiptCard from "./ReceiptCard";
 
 export default function DetailCard({ invoice }) {
   const {
-    id,
-    description,
-    senderAddress,
-    createdAt,
-    paymentDue,
-    clientName,
-    clientAddress,
-    clientEmail,
-    items,
+    id = "",
+    description = "",
+    senderAddress = "",
+    createdAt = "",
+    paymentDue = "",
+    clientName = "",
+    clientAddress = "",
+    clientEmail = "",
+    items = [],
+    total = 0,
   } = invoice;
   return (
     <div className="bg-white rounded-lg p-6 text-lightFour text-sm font-medium shadow-sm">
@@ -67,7 +68,7 @@ export default function DetailCard({ invoice }) {
         </div>
       </section>
 
-      <ReceiptCard items={items} />
+      <ReceiptCard items={items} total={total} />
     </div>
   );
 }

@@ -1,17 +1,23 @@
 import React from "react";
 import StatusWidget from "./StatusWidget";
+import { useNavigate } from "react-router-dom";
 
 import { formatDate, formatMoney } from "../util/helpers";
 
-function InvoiceCard({
-  id = "",
-  clientName = "",
-  paymentDue = "",
-  total = "",
-  status = "Draft",
-}) {
+function InvoiceCard({ invoice, setActiveInvoice = () => null }) {
+  const { id, clientName, paymentDue, total, status } = invoice;
+  const navigate = useNavigate();
+
+  const handleInvoiceSelection = () => {
+    setActiveInvoice(invoice);
+    navigate(`/invoices/${id}`);
+  };
+
   return (
-    <div className="relative bg-white p-6 pb-0 mb-4 flex flex-wrap rounded-lg shadow-sm md:justify-between md:items-center md:pb-6">
+    <div
+      className="relative bg-white p-6 pb-0 mb-4 flex flex-wrap rounded-lg shadow-sm cursor-pointer md:justify-between md:items-center md:pb-6 last:mb-0"
+      onClick={() => handleInvoiceSelection()}
+    >
       <h2 className="order-1 w-1/2 mb-6 text-sm text-darkFour font-bold md:mr-0 md:mb-0 md:w-1/5">
         <span className="text-lightThree">#</span>
         {id}
