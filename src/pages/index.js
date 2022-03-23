@@ -32,7 +32,7 @@ export default function Pages({
             path="/invoices/:invoiceId"
             element={
               <InvoiceDetail
-                handleForm={setFormActive}
+                setFormActive={setFormActive}
                 activeInvoice={activeInvoice}
                 setActiveInvoice={setActiveInvoice}
               />
