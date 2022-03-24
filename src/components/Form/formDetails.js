@@ -12,21 +12,21 @@ let validationSchema = object({
   description: string().required("can't be empty"),
   paymentTerms: number().required("can't be empty"),
   clientName: string().required("can't be empty"),
-  clientEmail: string().email().required("can't be empty"),
+  clientEmail: string().email("enter a valid email").required("can't be empty"),
   senderAddress: object({
     street: string().required("can't be empty"),
     city: string().required("can't be empty"),
     zipcode: string()
-      .matches(/^[0-9]{5}$/, "Enter a valid zip code.")
-      .required(),
+      .matches(/^[0-9]{5}$/, "enter a valid zip code")
+      .required("can't be empty"),
     country: string().required("can't be empty"),
   }),
   clientAddress: object({
     street: string().required("can't be empty"),
     city: string().required("can't be empty"),
     zipcode: string()
-      .matches(/^[0-9]{5}$/, "Enter a valid zip code.")
-      .required(),
+      .matches(/^[0-9]{5}$/, "enter a valid zip code")
+      .required("can't be empty"),
     country: string().required("can't be empty"),
   }),
   items: array().of(
@@ -48,7 +48,7 @@ const initialValues = {
   senderAddress: {
     street: "",
     city: "",
-    postCode: "",
+    zipcode: "",
     country: "",
   },
   clientAddress: {

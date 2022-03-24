@@ -11,6 +11,7 @@ function FormInput({
   options = [],
   error = false,
   touched = false,
+  className = "",
 }) {
   let inputType;
   switch (variant) {
@@ -30,14 +31,14 @@ function FormInput({
   const errorFlag = error && touched;
 
   return (
-    <div className="w-60 py-3 max-w-xs">
+    <div className={className}>
       <label
         htmlFor={name}
-        className={`flex justify-between items-center text-sm text-lightThree font-medium ${
+        className={`mb-2.5 flex flex-wrap justify-between items-center text-sm text-lightThree font-medium ${
           errorFlag && "text-red"
         }`}
       >
-        <span>{label}</span>
+        <span className="mr-1">{label}</span>
         <ErrorMessage name={name} component="span" />
       </label>
       <Field
@@ -45,7 +46,7 @@ function FormInput({
         id={name}
         name={name}
         options={options}
-        className={`w-full my-0.5 rounded border border-lightTwo text-sm px-5 py-4 font-bold text-darkFour outline-none caret-purple focus:border-purple cursor-pointer ${
+        className={`w-full rounded border border-lightTwo text-sm px-5 py-4 font-bold text-darkFour outline-none caret-purple focus:border-purple cursor-pointer ${
           errorFlag && "border-red focus:border-red"
         }`}
       />

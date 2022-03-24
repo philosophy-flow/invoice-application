@@ -5,6 +5,10 @@ import formDetails from "./formDetails";
 import FormInput from "../FormInput";
 import Button from "../Button";
 
+import BillFrom from "./BillFrom";
+import BillTo from "./BillTo";
+import MoreInfo from "./MoreInfo";
+
 import { generateId } from "../../util/helpers";
 
 const { validationSchema, initialValues } = formDetails;
@@ -18,7 +22,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
       "New Invoice"
     ) : (
       <>
-        <span>#</span>
+        Edit <span className="text-lightFour">#</span>
         {activeInvoice.id}
       </>
     );
@@ -33,7 +37,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
       // add status here
       ...vals,
       id: generateId(),
-      invoiceDate: vals.toDetails.invoiceDate.toLocaleDateString(),
+      invoiceDate: vals.createdAt.toLocaleDateString(),
     };
     console.log(formValues);
   };
@@ -45,7 +49,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
         className={`fixed top-0 left-0 right-0 min-h-screen h-full bg-modalBg ${
           active ? "block" : "hidden"
         }`}
-        onClick={() => handleFormClose()}
+        onClick={handleFormClose}
       />
       <div className={active ? style + " translate-x-full" : style}>
         <Formik
@@ -55,24 +59,19 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
         >
           {active &&
             (({ errors, touched }) => (
-              <FormikForm className="m-5" aria-label="form">
-                <h2>{title}</h2>
-                <FormInput
-                  variant="text"
-                  name="fromDetails.address"
-                  label="Street Address"
-                  error={errors.fromDetails?.address}
-                  touched={touched.fromDetails?.address}
+              <FormikForm className="mx-[6.4%] my-8" aria-label="form">
+                <Button
+                  variant="back"
+                  label="Go back"
+                  className="mb-6 md:hidden"
+                  onClick={handleFormClose}
                 />
-
-                <FormInput
-                  variant="date"
-                  name="createdAt"
-                  label="Invoice Date"
-                  error={errors.createdAt}
-                  touched={touched.createdAt}
-                />
-
+                <h2 className="text-darkFour text-[1.5rem] font-bold mb-6">
+                  {title}
+                </h2>
+                <BillFrom errors={errors} touched={touched} />
+                <BillTo errors={errors} touched={touched} />
+                <MoreInfo errors={errors} touched={touched} />
                 <Button type="submit" variant="secondary" label="Submit" />
               </FormikForm>
             ))}
