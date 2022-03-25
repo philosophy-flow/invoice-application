@@ -17,16 +17,16 @@ let validationSchema = object({
     street: string().required("can't be empty"),
     city: string().required("can't be empty"),
     zipcode: string()
-      .matches(/^[0-9]{5}$/, "enter a valid zip code")
-      .required("can't be empty"),
+      .matches(/^[0-9]{5}$/, "invalid")
+      .required("invalid"),
     country: string().required("can't be empty"),
   }),
   clientAddress: object({
     street: string().required("can't be empty"),
     city: string().required("can't be empty"),
     zipcode: string()
-      .matches(/^[0-9]{5}$/, "enter a valid zip code")
-      .required("can't be empty"),
+      .matches(/^[0-9]{5}$/, "invalid")
+      .required("invalid"),
     country: string().required("can't be empty"),
   }),
   items: array().of(

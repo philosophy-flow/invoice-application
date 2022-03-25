@@ -1,14 +1,14 @@
 import React from "react";
 import { Formik, Form as FormikForm } from "formik";
 
-import formDetails from "./formDetails";
-import FormInput from "../FormInput";
 import Button from "../Button";
-
 import BillFrom from "./BillFrom";
 import BillTo from "./BillTo";
 import MoreInfo from "./MoreInfo";
+import ItemList from "./ItemList";
+import FormControl from "./FormControl";
 
+import formDetails from "./formDetails";
 import { generateId } from "../../util/helpers";
 
 const { validationSchema, initialValues } = formDetails;
@@ -27,7 +27,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
       </>
     );
 
-  const handleFormClose = () => {
+  const handleClose = () => {
     document.body.style.overflow = "scroll";
     setFormActive(false);
   };
@@ -49,33 +49,42 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
         className={`fixed top-0 left-0 right-0 min-h-screen h-full bg-modalBg ${
           active ? "block" : "hidden"
         }`}
-        onClick={handleFormClose}
+        onClick={handleClose}
       />
       <div className={active ? style + " translate-x-full" : style}>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={(vals) => handleSubmit(vals)}
-        >
-          {active &&
-            (({ errors, touched }) => (
-              <FormikForm className="mx-[6.4%] my-8" aria-label="form">
+        {active && (
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={(vals) => handleSubmit(vals)}
+          >
+            {({ errors, touched }) => (
+              <FormikForm
+                className="relative px-[6.4%] pt-8 pb-[11.25rem]"
+                aria-label="form"
+              >
                 <Button
                   variant="back"
                   label="Go back"
                   className="mb-6 md:hidden"
-                  onClick={handleFormClose}
+                  onClick={handleClose}
                 />
                 <h2 className="text-darkFour text-[1.5rem] font-bold mb-6">
                   {title}
                 </h2>
+
                 <BillFrom errors={errors} touched={touched} />
                 <BillTo errors={errors} touched={touched} />
                 <MoreInfo errors={errors} touched={touched} />
-                <Button type="submit" variant="secondary" label="Submit" />
+                <ItemList items={initialValues.items} />
+                <FormControl
+                  handleClose={handleClose}
+                  handleSubmit={handleSubmit}
+                />
               </FormikForm>
-            ))}
-        </Formik>
+            )}
+          </Formik>
+        )}
       </div>
     </>
   );

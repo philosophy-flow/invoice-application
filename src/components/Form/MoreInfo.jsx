@@ -33,7 +33,7 @@ export default function MoreInfo({ errors, touched }) {
         options={selectOptions}
         error={errors.description}
         touched={touched.description}
-        className="mb-6"
+        className="mb-[4.125rem]"
       />
     </section>
   );
