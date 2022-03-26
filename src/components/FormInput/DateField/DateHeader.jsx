@@ -14,13 +14,17 @@ export default function DateHeader({ date, decreaseMonth, increaseMonth }) {
 
   return (
     <div className="bg-white -mb-5 -mt-2 p-5 pb-2 rounded-t flex justify-between items-center text-darkFour font-bold font-sans">
-      <button onClick={decreaseMonth}>{icons.left}</button>
+      <button type="button" onClick={decreaseMonth}>
+        {icons.left}
+      </button>
       <div>
         <p>
           {months[activeMonth]} {activeYear}
         </p>
       </div>
-      <button onClick={increaseMonth}>{icons.right}</button>
+      <button type="button" onClick={increaseMonth}>
+        {icons.right}
+      </button>
     </div>
   );
 }
