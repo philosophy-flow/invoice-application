@@ -58,7 +58,7 @@ const initialValues = {
     country: "",
   },
   items: [],
-  total: 1800.9,
+  total: 0,
 };
 
 const formDetails = { validationSchema, initialValues, selectOptions };
