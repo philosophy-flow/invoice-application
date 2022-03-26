@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
-export default function FormControl({ handleClose, handleSubmit, values }) {
+export default function FormControl({ handleClose, setInvoiceStatus }) {
   return (
     <section>
       {/* Div for shadow */}
@@ -16,16 +16,18 @@ export default function FormControl({ handleClose, handleSubmit, values }) {
             onClick={handleClose}
           />
           <Button
+            type="submit"
             variant="dark"
             label="Save as Draft"
             className="px-4 py-4"
-            onClick={() => handleSubmit(values, "draft")}
+            onClick={() => setInvoiceStatus("draft")}
           />
           <Button
+            type="submit"
             variant="primary"
             label="Save & Send"
             className="px-4 py-4"
-            onClick={() => handleSubmit(values, "pending")}
+            onClick={() => setInvoiceStatus("pending")}
           />
         </div>
       </div>
