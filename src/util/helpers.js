@@ -58,3 +58,9 @@ export const generateId = () => {
 
   return firstLetter + secondLetter + num;
 };
+
+export const generateFutureDate = (date, daysToAdd) => {
+  const newDate = new Date();
+  newDate.setDate(date.getDate() + daysToAdd);
+  return new Date(newDate);
+};

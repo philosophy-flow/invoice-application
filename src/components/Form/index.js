@@ -9,7 +9,7 @@ import ItemList from "./ItemList";
 import FormControl from "./FormControl";
 
 import formDetails from "./formDetails";
-import { generateId } from "../../util/helpers";
+import { generateId, generateFutureDate } from "../../util/helpers";
 
 const { validationSchema, initialValues } = formDetails;
 
@@ -32,12 +32,16 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
     setFormActive(false);
   };
 
-  const handleSubmit = (vals) => {
+  const handleSubmit = (vals, status) => {
     const formValues = {
-      // add status here
       ...vals,
       id: generateId(),
-      invoiceDate: vals.createdAt.toLocaleDateString(),
+      status,
+      createdAt: vals.createdAt.toLocaleDateString(),
+      paymentDue: generateFutureDate(
+        vals.createdAt,
+        vals.paymentTerms
+      ).toLocaleDateString(),
     };
     console.log(formValues);
   };
@@ -56,9 +60,8 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={(vals) => handleSubmit(vals)}
           >
-            {({ errors, touched }) => (
+            {({ errors, touched, values }) => (
               <FormikForm
                 className="relative px-[6.4%] pt-8 pb-[11.25rem]"
                 aria-label="form"
@@ -80,6 +83,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
                 <FormControl
                   handleClose={handleClose}
                   handleSubmit={handleSubmit}
+                  values={values}
                 />
               </FormikForm>
             )}
