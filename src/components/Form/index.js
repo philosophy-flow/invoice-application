@@ -17,7 +17,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
   const [invoiceStatus, setInvoiceStatus] = useState("");
 
   let style =
-    "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full overflow-scroll md:top-20 md:rounded-r-xl md:w-4/5 md:-left-[80%] xl:w-1/2 xl:-left-1/2 xl:top-0 xl:pl-[9.9375rem]";
+    "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full px-[6.4%] pt-8 md:top-20 md:rounded-r-xl md:w-4/5 md:-left-[80%] xl:w-1/2 xl:-left-1/2 xl:top-0 xl:pl-[9.9375rem]";
 
   const title =
     Object.keys(activeInvoice).length === 0 ? (
@@ -65,24 +65,26 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
             onSubmit={(vals) => handleSubmit(vals, invoiceStatus)}
           >
             {({ errors, touched }) => (
-              <FormikForm
-                className="relative px-[6.4%] pt-8 pb-[11.25rem]"
-                aria-label="form"
-              >
-                <Button
-                  variant="back"
-                  label="Go back"
-                  className="mb-6 md:hidden"
-                  onClick={handleClose}
-                />
-                <h2 className="text-darkFour text-[1.5rem] font-bold mb-6">
-                  {title}
-                </h2>
+              <FormikForm aria-label="form" className=" flex flex-col h-full">
+                <header>
+                  <Button
+                    variant="back"
+                    label="Go back"
+                    className="mb-6 md:hidden"
+                    onClick={handleClose}
+                  />
+                  <h2 className="text-darkFour text-[1.5rem] font-bold mb-6">
+                    {title}
+                  </h2>
+                </header>
 
-                <BillFrom errors={errors} touched={touched} />
-                <BillTo errors={errors} touched={touched} />
-                <MoreInfo errors={errors} touched={touched} />
-                <ItemList items={initialValues.items} />
+                <div className="overflow-scroll flex-1 -mx-[6.4%] px-[7%]">
+                  <BillFrom errors={errors} touched={touched} />
+                  <BillTo errors={errors} touched={touched} />
+                  <MoreInfo errors={errors} touched={touched} />
+                  <ItemList items={initialValues.items} />
+                </div>
+
                 <FormControl
                   handleClose={handleClose}
                   setInvoiceStatus={setInvoiceStatus}
