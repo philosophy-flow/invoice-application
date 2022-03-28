@@ -1,6 +1,6 @@
 {
   "name": "invoice-app",
-  "homepage": "invoices",
+  "homepage": "https://invoice-application-nfwysu7b9-philosophy-flow.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
