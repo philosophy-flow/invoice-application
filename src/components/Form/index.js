@@ -78,7 +78,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
                   </h2>
                 </header>
 
-                <div className="overflow-scroll flex-1 -mx-[6.4%] px-[7%]">
+                <div className="overflow-scroll flex-1 -mx-[6.4%] px-[7%] scrollbar-hide">
                   <BillFrom errors={errors} touched={touched} />
                   <BillTo errors={errors} touched={touched} />
                   <MoreInfo errors={errors} touched={touched} />

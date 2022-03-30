@@ -54,5 +54,5 @@ module.exports = {
       gradientBgEnd: "rgba(0, 0, 0, 0.1)",
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
