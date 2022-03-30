@@ -52,7 +52,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
     <>
       <div
         id="overlay"
-        className={`fixed top-0 left-0 right-0 min-h-screen h-full bg-modalBg ${
+        className={`fixed top-0 left-0 right-0 min-h-screen h-full bg-white md:bg-modalBg ${
           active ? "block" : "hidden"
         }`}
         onClick={handleClose}
