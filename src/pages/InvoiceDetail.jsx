@@ -24,6 +24,11 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
     navigate("/invoices");
   };
 
+  const handleFormOpen = () => {
+    setFormActive(true);
+    document.body.style.overflow = "hidden";
+  };
+
   return (
     <>
       <Button variant="back" label="Go Back" onClick={handleBack} />
@@ -36,11 +41,7 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
 
       <div className="absolute left-0 right-0 bottom-0 h-[5.75rem] bg-white shadow-sm px-[6.4%] md:hidden">
         <div className="flex justify-between items-center h-full">
-          <Button
-            variant="secondary"
-            label="Edit"
-            onClick={() => setFormActive(true)}
-          />
+          <Button variant="secondary" label="Edit" onClick={handleFormOpen} />
           <Button variant="danger" label="Delete" />
           <Button variant="primary" label="Mark as Paid" />
         </div>
