@@ -12,7 +12,7 @@ export default function App() {
   const [activeInvoice, setActiveInvoice] = useState({});
 
   return (
-    <div className="min-h-screen h-fit bg-lightOne">
+    <div className="min-h-screen bg-lightOne">
       <Header />
       <Pages
         setFormActive={setFormActive}
