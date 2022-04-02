@@ -65,7 +65,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
             onSubmit={(vals) => handleSubmit(vals, invoiceStatus)}
           >
             {({ errors, touched }) => (
-              <FormikForm aria-label="form" className=" flex flex-col h-full">
+              <FormikForm aria-label="form" className="flex flex-col h-full">
                 <header>
                   <Button
                     variant="back"
@@ -78,7 +78,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
                   </h2>
                 </header>
 
-                <div className="overflow-scroll flex-1 -mx-[6.4%] px-[7%] scrollbar-hide">
+                <div className="overflow-scroll flex-1 pb-[5.75rem] scrollbar-hide">
                   <BillFrom errors={errors} touched={touched} />
                   <BillTo errors={errors} touched={touched} />
                   <MoreInfo errors={errors} touched={touched} />

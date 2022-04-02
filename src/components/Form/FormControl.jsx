@@ -3,10 +3,10 @@ import Button from "../Button";
 
 export default function FormControl({ handleClose, setInvoiceStatus }) {
   return (
-    <section className="h-[5.75rem] -mx-[7.2%]">
+    <section className="fixed left-0 right-0 bottom-0 h-[5.75rem] md:static">
       {/* Div for shadow */}
       <div className="absolute left-0 right-0 bottom-[5.75rem] h-16 bg-gradient-to-b from-gradientBgStart to-gradientBgEnd pointer-events-none" />
-      <div className="bg-white px-[6.4%] flex justify-between items-center h-full">
+      <div className="bg-white px-[6.4%] flex justify-between items-center h-full md:px-0">
         <Button
           variant="secondary"
           label="Discard"
