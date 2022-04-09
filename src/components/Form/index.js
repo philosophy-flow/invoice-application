@@ -5,7 +5,7 @@ import Button from "../Button";
 import BillFrom from "./BillFrom";
 import BillTo from "./BillTo";
 import MoreInfo from "./MoreInfo";
-import ItemList from "./ItemList";
+import ItemsList from "./ItemsList";
 import FormControl from "./FormControl";
 
 import formDetails from "./formDetails";
@@ -64,8 +64,8 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
             validationSchema={validationSchema}
             onSubmit={(vals) => handleSubmit(vals, invoiceStatus)}
           >
-            {({ errors, touched }) => (
-              <FormikForm aria-label="form" className="flex flex-col h-full">
+            {({ errors, setFieldValue, touched, values }) => (
+              <FormikForm aria-label="form" className=" flex flex-col h-full">
                 <header>
                   <Button
                     variant="back"
@@ -78,11 +78,14 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
                   </h2>
                 </header>
 
-                <div className="overflow-scroll flex-1 scrollbar-hide">
+                <div className="overflow-scroll flex-1 scrollbar-hide pb-[5.5rem]">
                   <BillFrom errors={errors} touched={touched} />
                   <BillTo errors={errors} touched={touched} />
                   <MoreInfo errors={errors} touched={touched} />
-                  <ItemList items={initialValues.items} />
+                  <ItemsList
+                    items={values.items}
+                    setFieldValue={setFieldValue}
+                  />
                 </div>
 
                 <FormControl
