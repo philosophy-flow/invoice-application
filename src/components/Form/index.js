@@ -65,7 +65,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
             onSubmit={(vals) => handleSubmit(vals, invoiceStatus)}
           >
             {({ errors, touched }) => (
-              <FormikForm aria-label="form" className=" flex flex-col h-full">
+              <FormikForm aria-label="form" className="flex flex-col h-full">
                 <header>
                   <Button
                     variant="back"
