@@ -16,6 +16,7 @@ export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
 
   const handleFormOpen = () => {
     setFormActive(true);
+    document.documentElement.style.height = "100vh";
     document.body.style.position = "fixed";
   };
 
