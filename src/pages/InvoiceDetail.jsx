@@ -25,6 +25,7 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
   };
 
   const handleFormOpen = () => {
+    document.documentElement.style.overflow = "hidden";
     document.body.style.position = "fixed";
     document.body.style.top = "0";
     document.body.style.bottom = "0";
