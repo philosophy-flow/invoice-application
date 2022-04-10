@@ -30,7 +30,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
     );
 
   const handleClose = () => {
-    document.documentElement.style.height = "auto";
+    document.body.style.height = "auto";
     document.body.style.position = "static";
     setFormActive(false);
   };
