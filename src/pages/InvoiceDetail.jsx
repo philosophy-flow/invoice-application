@@ -7,7 +7,6 @@ import DetailCard from "../components/DetailCard";
 import DeleteInvoice from "../components/DeleteInvoice";
 
 import { sampleData } from "../util/constants";
-import { scrollToTop } from "../util/helpers";
 
 function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
   const { id, status } = activeInvoice;
@@ -26,13 +25,12 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
   };
 
   const handleFormOpen = () => {
-    scrollToTop();
+    document.body.style.position = "fixed";
+    document.body.style.top = "0";
+    document.body.style.bottom = "0";
+    document.body.style.left = "0";
+    document.body.style.right = "0";
     setTimeout(() => {
-      document.body.style.position = "fixed";
-      document.body.style.top = "0";
-      document.body.style.bottom = "0";
-      document.body.style.left = "0";
-      document.body.style.right = "0";
       setFormActive(true);
     }, 100);
   };
