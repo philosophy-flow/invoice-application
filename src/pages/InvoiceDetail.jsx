@@ -32,7 +32,7 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
       document.body.style.bottom = "0";
       document.body.style.left = "0";
       document.body.style.right = "0";
-    });
+    }, 1000);
   };
 
   return (
