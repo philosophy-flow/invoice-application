@@ -43,7 +43,7 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
         <DetailCard invoice={activeInvoice} />
       </div>
 
-      <div className="-mb-[6.5rem] -mx-[7%] h-[5.75rem] bg-white shadow-sm px-[6.4%] md:hidden">
+      <div className="fixed bottom-0 right-0 left-0 h-[5.75rem] bg-white shadow-sm px-[6.4%] md:hidden">
         <div className="flex justify-between items-center h-full">
           <Button variant="secondary" label="Edit" onClick={handleFormOpen} />
           <Button variant="danger" label="Delete" />
