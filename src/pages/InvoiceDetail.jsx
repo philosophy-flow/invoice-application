@@ -6,6 +6,7 @@ import StatusCard from "../components/StatusCard";
 import DetailCard from "../components/DetailCard";
 import DeleteInvoice from "../components/DeleteInvoice";
 
+import { scrollToTop } from "../util/helpers";
 import { sampleData } from "../util/constants";
 
 function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
@@ -25,6 +26,7 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
   };
 
   const handleFormOpen = () => {
+    scrollToTop();
     setFormActive(true);
     document.body.style.position = "fixed";
     document.body.style.top = "0";
