@@ -31,7 +31,6 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
 
   const handleClose = () => {
     document.body.style.overflow = "scroll";
-    document.body.style.touchAction = "auto";
     setFormActive(false);
   };
 
