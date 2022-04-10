@@ -47,7 +47,7 @@ function FormInput({
           disabled
           id={name}
           name={name}
-          className="w-full bg-white text-sm text-lightFour font-bold py-4"
+          className="w-full bg-white text-sm text-lightFour font-bold py-4 opacity-100"
         />
       ) : (
         <Field
