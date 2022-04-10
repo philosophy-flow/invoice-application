@@ -34,7 +34,7 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
       document.body.style.left = "0";
       document.body.style.right = "0";
       setFormActive(true);
-    }, 500);
+    }, 1000);
   };
 
   return (
