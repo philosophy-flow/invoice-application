@@ -35,7 +35,7 @@ function Button({
       style = "text-darkFour text-sm flex items-center py-4 px-4.5";
       break;
     case "delete-item":
-      style = "";
+      style = "p-1";
       break;
     default:
       style = "text-darkFour text-sm flex items-center py-4 px-6";
