@@ -17,7 +17,7 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
   const [invoiceStatus, setInvoiceStatus] = useState("");
 
   let style =
-    "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full px-[6.4%] pt-8 md:top-20 md:rounded-r-xl md:w-4/5 md:-left-[80%] xl:w-1/2 xl:-left-1/2 xl:top-0 xl:pl-[9.9375rem]";
+    "bg-white fixed top-0 bottom-0 -left-full z-9 transition-all duration-300 w-full px-[6.4%] pt-8 md:top-20 md:rounded-r-xl md:w-4/5 md:-left-[80%] xl:w-1/2 xl:-left-1/2 xl:top-0 xl:pl-[9.9375rem]";
 
   const title =
     Object.keys(activeInvoice).length === 0 ? (
