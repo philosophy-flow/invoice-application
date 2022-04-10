@@ -15,7 +15,7 @@ import {
   formCloseStyles,
 } from "../../util/helpers";
 
-const { validationSchema, initialValues } = formDetails;
+let { validationSchema, initialValues } = formDetails;
 
 export default function Form({
   active = false,
@@ -37,6 +37,14 @@ export default function Form({
         {activeInvoice.id}
       </>
     );
+
+  initialValues =
+    Object.keys(activeInvoice).length === 0
+      ? initialValues
+      : {
+          ...activeInvoice,
+          createdAt: new Date(activeInvoice.createdAt),
+        };
 
   const handleClose = () => {
     setFormActive(false);
