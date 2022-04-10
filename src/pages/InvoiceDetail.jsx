@@ -7,6 +7,7 @@ import DetailCard from "../components/DetailCard";
 import DeleteInvoice from "../components/DeleteInvoice";
 
 import { sampleData } from "../util/constants";
+import { formOpenStyles } from "../util/helpers";
 
 function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
   const { id, status } = activeInvoice;
@@ -26,12 +27,7 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
 
   const handleFormOpen = () => {
     setFormActive(true);
-    document.documentElement.style.height = "100vh";
-    document.body.style.position = "fixed";
-    document.body.style.top = "0";
-    document.body.style.bottom = "0";
-    document.body.style.right = "0";
-    document.body.style.left = "0";
+    formOpenStyles();
   };
 
   return (

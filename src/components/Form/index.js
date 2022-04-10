@@ -9,7 +9,11 @@ import ItemsList from "./ItemsList";
 import FormControl from "./FormControl";
 
 import formDetails from "./formDetails";
-import { generateId, generateFutureDate } from "../../util/helpers";
+import {
+  generateId,
+  generateFutureDate,
+  formCloseStyles,
+} from "../../util/helpers";
 
 const { validationSchema, initialValues } = formDetails;
 
@@ -30,9 +34,8 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
     );
 
   const handleClose = () => {
-    document.documentElement.style.height = "auto";
-    document.body.style.position = "static";
     setFormActive(false);
+    formCloseStyles();
   };
 
   const handleSubmit = (vals, status) => {

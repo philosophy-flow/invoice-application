@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import { formOpenStyles } from "../util/helpers";
 
 export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
   let countText;
@@ -16,14 +17,7 @@ export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
 
   const handleFormOpen = () => {
     setFormActive(true);
-    document.documentElement.style.height = "100vh";
-    document.documentElement.style.overflow = "hidden";
-
-    document.body.style.position = "fixed";
-    document.body.style.top = "0";
-    document.body.style.bottom = "0";
-    document.body.style.right = "0";
-    document.body.style.left = "0";
+    formOpenStyles();
   };
 
   return (

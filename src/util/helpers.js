@@ -64,3 +64,15 @@ export const generateFutureDate = (date, daysToAdd) => {
   newDate.setDate(date.getDate() + daysToAdd);
   return new Date(newDate);
 };
+
+export const formOpenStyles = () => {
+  document.documentElement.style.height = "100vh";
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.position = "fixed";
+};
+
+export const formCloseStyles = () => {
+  document.documentElement.style.height = "auto";
+  document.documentElement.style.overflow = "scroll";
+  document.body.style.position = "static";
+};
