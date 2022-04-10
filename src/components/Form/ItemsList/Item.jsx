@@ -21,22 +21,22 @@ export default function Item({
         label="Item Name"
         name={`items[${index}].name`}
         className="w-full mb-6"
-        error={errors.items?.[index].name}
-        touched={touched.items?.[index].name}
+        error={errors.items?.[index]?.name}
+        touched={touched.items?.[index]?.name}
       />
       <FormInput
         label="Qty."
         name={`items[${index}].quantity`}
         className="w-[20%] mr-4"
-        error={errors.items?.[index].quantity}
-        touched={touched.items?.[index].quantity}
+        error={errors.items?.[index]?.quantity}
+        touched={touched.items?.[index]?.quantity}
       />
       <FormInput
         label="Price"
         name={`items[${index}].price`}
         className="w-[31%] mr-4"
-        error={errors.items?.[index].price}
-        touched={touched.items?.[index].price}
+        error={errors.items?.[index]?.price}
+        touched={touched.items?.[index]?.price}
       />
       <FormInput
         label="Total"
