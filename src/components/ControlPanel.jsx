@@ -18,6 +18,10 @@ export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
     setFormActive(true);
     document.documentElement.style.height = "100vh";
     document.body.style.position = "fixed";
+    document.body.style.top = "0";
+    document.body.style.bottom = "0";
+    document.body.style.right = "0";
+    document.body.style.left = "0";
   };
 
   return (
