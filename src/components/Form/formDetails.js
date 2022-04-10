@@ -29,13 +29,16 @@ let validationSchema = object({
       .required("invalid"),
     country: string().required("can't be empty"),
   }),
-  items: array().of(
-    object({
-      name: string().required("can't be empty"),
-      quantity: number().required("can't be empty").min(1).max(99),
-      price: number().required("can't be empty"),
-    })
-  ),
+  items: array()
+    .min(1, "add at least one item")
+    .of(
+      object({
+        name: string().required("can't be empty"),
+        quantity: number().typeError("").required(" ").min(1).max(99),
+        price: number("").typeError("").required(" "),
+        total: number("").typeError("").required(" "),
+      })
+    ),
   total: number().required("can't be empty"),
 });
 

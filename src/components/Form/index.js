@@ -17,7 +17,12 @@ import {
 
 const { validationSchema, initialValues } = formDetails;
 
-export default function Form({ active = false, activeInvoice, setFormActive }) {
+export default function Form({
+  active = false,
+  activeInvoice,
+  setFormActive,
+  setInvoices,
+}) {
   const [invoiceStatus, setInvoiceStatus] = useState("");
 
   let style =
@@ -49,7 +54,8 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
         vals.paymentTerms
       ).toLocaleDateString(),
     };
-    console.log(formValues);
+    setInvoices((prevInvoices) => [...prevInvoices, formValues]);
+    handleClose();
   };
 
   return (
@@ -87,6 +93,8 @@ export default function Form({ active = false, activeInvoice, setFormActive }) {
                   <BillTo errors={errors} touched={touched} />
                   <MoreInfo errors={errors} touched={touched} />
                   <ItemsList
+                    errors={errors}
+                    touched={touched}
                     items={values.items}
                     setFieldValue={setFieldValue}
                   />

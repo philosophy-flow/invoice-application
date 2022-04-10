@@ -1,13 +1,22 @@
 import React from "react";
-import { FieldArray } from "formik";
+import { FieldArray, ErrorMessage } from "formik";
 
 import Button from "../../Button";
 import Item from "./Item";
 
-export default function ItemsList({ items, setFieldValue }) {
+export default function ItemsList({ errors, items, setFieldValue, touched }) {
   return (
     <section>
-      <h3 className="text-[1.125rem] text-[#777F98] mb-6">Item List</h3>
+      <div className="flex justify-between items-center mb-6">
+        <h3 className="text-[1.125rem] text-[#777F98] ">Item List</h3>
+        {typeof errors.items === "string" && (
+          <ErrorMessage
+            name="items"
+            component="span"
+            className="text-sm text-red font-medium"
+          />
+        )}
+      </div>
       <FieldArray name="items">
         {(arrayHelpers) => (
           <>
@@ -18,6 +27,8 @@ export default function ItemsList({ items, setFieldValue }) {
                 item={item}
                 setFieldValue={setFieldValue}
                 arrayHelpers={arrayHelpers}
+                errors={errors}
+                touched={touched}
               />
             ))}
             <Button

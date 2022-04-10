@@ -2,7 +2,14 @@ import React, { useEffect } from "react";
 import FormInput from "../../FormInput";
 import Button from "../../Button";
 
-export default function Item({ arrayHelpers, index, item, setFieldValue }) {
+export default function Item({
+  arrayHelpers,
+  errors,
+  index,
+  item,
+  setFieldValue,
+  touched,
+}) {
   useEffect(() => {
     const total = (item.price * item.quantity).toFixed(2);
     setFieldValue(`items[${index}].total`, total);
@@ -14,16 +21,22 @@ export default function Item({ arrayHelpers, index, item, setFieldValue }) {
         label="Item Name"
         name={`items[${index}].name`}
         className="w-full mb-6"
+        error={errors.items?.[index].name}
+        touched={touched.items?.[index].name}
       />
       <FormInput
         label="Qty."
         name={`items[${index}].quantity`}
         className="w-[20%] mr-4"
+        error={errors.items?.[index].quantity}
+        touched={touched.items?.[index].quantity}
       />
       <FormInput
         label="Price"
         name={`items[${index}].price`}
         className="w-[31%] mr-4"
+        error={errors.items?.[index].price}
+        touched={touched.items?.[index].price}
       />
       <FormInput
         label="Total"

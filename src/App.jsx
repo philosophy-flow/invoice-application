@@ -24,6 +24,7 @@ export default function App() {
         active={formActive}
         activeInvoice={activeInvoice}
         setFormActive={setFormActive}
+        setInvoices={setInvoices}
       />
     </div>
   );
