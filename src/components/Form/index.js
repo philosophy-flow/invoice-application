@@ -1,68 +1,121 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form as FormikForm } from "formik";
 
-import formDetails from "./formDetails";
-import FormInput from "../FormInput";
 import Button from "../Button";
+import BillFrom from "./BillFrom";
+import BillTo from "./BillTo";
+import MoreInfo from "./MoreInfo";
+import ItemsList from "./ItemsList";
+import FormControl from "./FormControl";
 
-const { validationSchema, initialValues } = formDetails;
+import formDetails from "./formDetails";
+import {
+  generateId,
+  generateFutureDate,
+  formCloseStyles,
+} from "../../util/helpers";
 
-export default function Form({ open = false, title = "Form", setFormState }) {
+let { validationSchema, initialValues } = formDetails;
+
+export default function Form({
+  active = false,
+  activeInvoice,
+  setFormActive,
+  setInvoices,
+}) {
+  const [invoiceStatus, setInvoiceStatus] = useState("");
+
   let style =
-    "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full overflow-scroll md:top-20 md:rounded-r-xl md:w-4/5 md:-left-[80%] xl:w-1/2 xl:-left-1/2 xl:top-0 xl:pl-[9.9375rem]";
+    "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full px-[6.4%] pt-8 md:top-20 md:rounded-r-xl md:w-4/5 md:-left-[80%] xl:w-1/2 xl:-left-1/2 xl:top-0 xl:pl-[9.9375rem]";
 
-  const handleFormClose = () => {
-    document.body.style.overflow = "scroll";
-    setFormState({ open: false, title: "" });
+  const title =
+    Object.keys(activeInvoice).length === 0 ? (
+      "New Invoice"
+    ) : (
+      <>
+        Edit <span className="text-lightFour">#</span>
+        {activeInvoice.id}
+      </>
+    );
+
+  initialValues =
+    Object.keys(activeInvoice).length === 0
+      ? initialValues
+      : {
+          ...activeInvoice,
+          createdAt: new Date(activeInvoice.createdAt),
+        };
+
+  const handleClose = () => {
+    setFormActive(false);
+    formCloseStyles();
   };
 
-  const handleSubmit = (vals) => {
+  const handleSubmit = (vals, status) => {
     const formValues = {
       ...vals,
-      invoiceDate: vals.toDetails.invoiceDate.toLocaleDateString(),
+      id: generateId(),
+      status,
+      createdAt: vals.createdAt.toLocaleDateString(),
+      paymentDue: generateFutureDate(
+        vals.createdAt,
+        vals.paymentTerms
+      ).toLocaleDateString(),
     };
-    console.log(formValues);
+    setInvoices((prevInvoices) => [...prevInvoices, formValues]);
+    handleClose();
   };
 
   return (
     <>
       <div
         id="overlay"
-        className={`fixed top-0 left-0 right-0 min-h-screen h-full bg-modalBg ${
-          open ? "block" : "hidden"
+        className={`fixed top-0 left-0 right-0 min-h-screen h-full bg-white md:bg-modalBg ${
+          active ? "block" : "hidden"
         }`}
-        onClick={() => handleFormClose()}
+        onClick={handleClose}
       />
-      <div className={open ? style + " translate-x-full" : style}>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={(vals) => handleSubmit(vals)}
-        >
-          {open &&
-            (({ errors, touched }) => (
-              <FormikForm className="m-5" aria-label="form">
-                <h2>{title}</h2>
-                <FormInput
-                  variant="text"
-                  name="fromDetails.address"
-                  label="Street Address"
-                  error={errors.fromDetails?.address}
-                  touched={touched.fromDetails?.address}
-                />
+      <div className={active ? style + " translate-x-full" : style}>
+        {active && (
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={(vals) => handleSubmit(vals, invoiceStatus)}
+          >
+            {({ errors, setFieldValue, touched, values }) => (
+              <FormikForm aria-label="form" className=" flex flex-col h-full">
+                <header>
+                  <Button
+                    variant="back"
+                    label="Go back"
+                    className="mb-6 md:hidden"
+                    onClick={handleClose}
+                  />
+                  <h2 className="text-darkFour text-[1.5rem] font-bold mb-6">
+                    {title}
+                  </h2>
+                </header>
 
-                <FormInput
-                  variant="text"
-                  name="toDetails.name"
-                  label="Client's Name"
-                  error={errors.toDetails?.name}
-                  touched={touched.toDetails?.name}
-                />
+                <div className="overflow-scroll flex-1 scrollbar-hide pb-[11rem]">
+                  <BillFrom errors={errors} touched={touched} />
+                  <BillTo errors={errors} touched={touched} />
+                  <MoreInfo errors={errors} touched={touched} />
+                  <ItemsList
+                    errors={errors}
+                    touched={touched}
+                    items={values.items}
+                    setFieldValue={setFieldValue}
+                  />
+                </div>
 
-                <Button type="submit" variant="secondary" label="Submit" />
+                <FormControl
+                  handleClose={handleClose}
+                  setInvoiceStatus={setInvoiceStatus}
+                />
               </FormikForm>
-            ))}
-        </Formik>
+            )}
+          </Formik>
+        )}
       </div>
     </>
   );

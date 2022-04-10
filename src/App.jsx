@@ -7,23 +7,24 @@ import Header from "./components/Header";
 import { sampleData } from "./util/constants";
 
 export default function App() {
-  const [formState, setFormState] = useState({ active: false, title: "" });
+  const [formActive, setFormActive] = useState(false);
   const [invoices, setInvoices] = useState(sampleData);
   const [activeInvoice, setActiveInvoice] = useState({});
 
   return (
-    <div className="min-h-screen h-fit bg-lightOne">
+    <div className="bg-lightOne min-h-screen">
       <Header />
       <Pages
-        setFormState={setFormState}
+        setFormActive={setFormActive}
         invoices={invoices}
         activeInvoice={activeInvoice}
         setActiveInvoice={setActiveInvoice}
       />
       <Form
-        open={formState.active}
-        title={formState.title}
-        setFormState={setFormState}
+        active={formActive}
+        activeInvoice={activeInvoice}
+        setFormActive={setFormActive}
+        setInvoices={setInvoices}
       />
     </div>
   );

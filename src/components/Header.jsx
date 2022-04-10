@@ -6,15 +6,15 @@ import Avatar from "../assets/img/avatar.jpg";
 
 function Header() {
   return (
-    <div className="fixed h-17.5 w-full z-10 bg-draftWidget flex justify-between items-center md:h-20 xl:w-[6.4375rem] xl:h-screen xl:flex-col xl:rounded-r-[28px]">
-      <div className="h-full xl:w-full xl:h-auto">
+    <div className="fixed z-10 flex justify-between items-center bg-draftWidget h-17.5 w-full md:h-20 xl:w-[6.4375rem] xl:flex-col xl:rounded-r-[1.75rem] xl:h-screen">
+      <div className="h-full xl:h-auto xl:w-full">
         <img src={HeaderIcon} className="h-full xl:w-full" alt="icon" />
       </div>
-      <div className="flex items-center h-full  xl:flex-col xl:h-auto">
-        <button className="px-6 border-r border-headerBorder h-full xl:border-none xl:h-auto xl:py-8">
+      <div className="flex items-center h-full xl:flex-col xl:h-auto">
+        <button className="border-r border-headerBorder h-full px-6 xl:border-none xl:h-auto xl:py-8">
           <Moon />
         </button>
-        <div className="px-6 xl:px-8 xl:py-6 xl:border-t border-headerBorder">
+        <div className="px-6 xl:px-8 xl:py-6 xl:border-t xl:border-headerBorder">
           <img src={Avatar} alt="avatar" className="rounded-full w-8 xl:w-10" />
         </div>
       </div>

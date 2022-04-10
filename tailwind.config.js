@@ -49,7 +49,10 @@ module.exports = {
 
       modalBg: "rgba(0, 0, 0, 0.5)",
       headerBorder: "#494E6E",
+
+      gradientBgStart: "rgba(0, 0, 0, 0.0001)",
+      gradientBgEnd: "rgba(0, 0, 0, 0.1)",
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };

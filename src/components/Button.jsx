@@ -2,10 +2,11 @@ import React from "react";
 import PlusIcon from "../assets/svg/PlusIcon";
 import LeftArrow from "../assets/svg/LeftArrow";
 import DownArrow from "../assets/svg/DownArrow";
+import TrashIcon from "../assets/svg/TrashIcon";
 
 function Button({
   variant = "primary",
-  label = "Button",
+  label = "",
   onClick = () => null,
   type = "button",
   className = "",
@@ -33,6 +34,9 @@ function Button({
     case "filter":
       style = "text-darkFour text-sm flex items-center py-4 px-4.5";
       break;
+    case "delete-item":
+      style = "p-1";
+      break;
     default:
       style = "text-darkFour text-sm flex items-center py-4 px-6";
   }
@@ -47,6 +51,7 @@ function Button({
       {variant === "primary-icon" && <PlusIcon />}
       {label}
       {variant === "filter" && <DownArrow />}
+      {variant === "delete-item" && <TrashIcon />}
     </button>
   );
 }

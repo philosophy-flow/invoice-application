@@ -9,7 +9,7 @@ import Invoices from "./Invoices";
 import InvoiceDetail from "./InvoiceDetail";
 
 export default function Pages({
-  setFormState,
+  setFormActive,
   invoices = [],
   activeInvoice,
   setActiveInvoice,
@@ -23,7 +23,7 @@ export default function Pages({
             element={
               <Invoices
                 invoices={invoices}
-                setFormState={setFormState}
+                setFormActive={setFormActive}
                 setActiveInvoice={setActiveInvoice}
               />
             }
@@ -32,8 +32,9 @@ export default function Pages({
             path="/invoices/:invoiceId"
             element={
               <InvoiceDetail
-                handleForm={setFormState}
+                setFormActive={setFormActive}
                 activeInvoice={activeInvoice}
+                setActiveInvoice={setActiveInvoice}
               />
             }
           />
