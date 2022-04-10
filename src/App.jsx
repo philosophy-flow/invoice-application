@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <div className="bg-lightOne min-h-screen">
-      {/* <Header /> */}
+      <Header />
       <Pages
         setFormActive={setFormActive}
         invoices={invoices}
