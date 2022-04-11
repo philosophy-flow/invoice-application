@@ -38,7 +38,7 @@ export default function Form({
       </>
     );
 
-  initialValues =
+  const dynamicInitialValues =
     Object.keys(activeInvoice).length === 0
       ? initialValues
       : {
@@ -78,7 +78,7 @@ export default function Form({
       <div className={active ? style + " translate-x-full" : style}>
         {active && (
           <Formik
-            initialValues={initialValues}
+            initialValues={dynamicInitialValues}
             validationSchema={validationSchema}
             onSubmit={(vals) => handleSubmit(vals, invoiceStatus)}
           >
