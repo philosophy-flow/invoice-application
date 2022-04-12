@@ -55,9 +55,9 @@ export default function Form({
   const handleSubmit = (vals, status) => {
     const parsedItems = vals.items.map((item) => ({
       ...item,
-      quantity: parseInt(item.quantity),
-      price: parseInt(item.price),
-      total: parseInt(item.total),
+      quantity: parseFloat(item.quantity),
+      price: parseFloat(item.price),
+      total: parseFloat(item.total),
     }));
     vals.items = parsedItems;
 
