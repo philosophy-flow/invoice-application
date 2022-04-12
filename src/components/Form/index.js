@@ -13,6 +13,7 @@ import {
   generateId,
   generateFutureDate,
   formCloseStyles,
+  formatDateString,
 } from "../../util/helpers";
 
 let { validationSchema, initialValues } = formDetails;
@@ -69,11 +70,13 @@ export default function Form({
       ...vals,
       id: generateId(),
       status,
-      createdAt: vals.createdAt.toLocaleDateString(),
-      paymentDue: generateFutureDate(
-        vals.createdAt,
-        vals.paymentTerms
-      ).toLocaleDateString(),
+      createdAt: formatDateString(vals.createdAt.toLocaleDateString()),
+      paymentDue: formatDateString(
+        generateFutureDate(
+          vals.createdAt,
+          vals.paymentTerms
+        ).toLocaleDateString()
+      ),
       total: grandTotal,
     };
     setInvoices((prevInvoices) => [...prevInvoices, formValues]);
