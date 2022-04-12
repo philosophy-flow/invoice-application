@@ -52,6 +52,19 @@ export default function Form({
   };
 
   const handleSubmit = (vals, status) => {
+    const parsedItems = vals.items.map((item) => ({
+      ...item,
+      quantity: parseInt(item.quantity),
+      price: parseInt(item.price),
+      total: parseInt(item.total),
+    }));
+    vals.items = parsedItems;
+
+    let grandTotal = 0;
+    parsedItems.forEach((item) => {
+      grandTotal += item.total;
+    });
+
     const formValues = {
       ...vals,
       id: generateId(),
@@ -61,6 +74,7 @@ export default function Form({
         vals.createdAt,
         vals.paymentTerms
       ).toLocaleDateString(),
+      total: grandTotal,
     };
     setInvoices((prevInvoices) => [...prevInvoices, formValues]);
     handleClose();
