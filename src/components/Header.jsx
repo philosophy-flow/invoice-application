@@ -2,7 +2,7 @@ import React from "react";
 
 import HeaderIcon from "../assets/svg/Header.svg";
 import Moon from "../assets/svg/Moon";
-import Avatar from "../assets/img/avatar.jpg";
+import Avatar from "../assets/img/mushroom.jpeg";
 
 function Header() {
   return (
