@@ -6,7 +6,6 @@ import StatusCard from "../components/StatusCard";
 import DetailCard from "../components/DetailCard";
 import DeleteInvoice from "../components/DeleteInvoice";
 
-import { sampleData } from "../util/constants";
 import { formOpenStyles } from "../util/helpers";
 
 function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
@@ -51,7 +50,7 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
       <DeleteInvoice
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
-        invoiceId={sampleData.id}
+        invoiceId={id}
       />
     </>
   );
