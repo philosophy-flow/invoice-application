@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Pages from "./pages";
 import Form from "./components/Form";
 import Header from "./components/Header";
 
-import { sampleData } from "./util/constants";
-
 export default function App() {
   const [formActive, setFormActive] = useState(false);
-  const [invoices, setInvoices] = useState(sampleData);
+  const [invoices, setInvoices] = useState([]);
   const [activeInvoice, setActiveInvoice] = useState({});
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch("sampleInvoices.json");
+      const sampleInvoices = await response.json();
+      setInvoices(sampleInvoices);
+    })();
+  }, []);
 
   return (
     <div className="bg-lightOne min-h-screen">
