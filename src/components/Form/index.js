@@ -29,23 +29,23 @@ export default function Form({
   let style =
     "bg-white fixed top-17.5 bottom-0 -left-full z-9 transition-all duration-300 w-full px-[6.4%] pt-8 md:top-20 md:rounded-r-xl md:w-4/5 md:-left-[80%] xl:w-1/2 xl:-left-1/2 xl:top-0 xl:pl-[9.9375rem]";
 
-  const title =
-    Object.keys(activeInvoice).length === 0 ? (
-      "New Invoice"
-    ) : (
-      <>
-        Edit <span className="text-lightFour">#</span>
-        {activeInvoice.id}
-      </>
-    );
+  const isNewInvoice = Object.keys(activeInvoice).length === 0;
 
-  const dynamicInitialValues =
-    Object.keys(activeInvoice).length === 0
-      ? initialValues
-      : {
-          ...activeInvoice,
-          createdAt: new Date(activeInvoice.createdAt),
-        };
+  const title = isNewInvoice ? (
+    "New Invoice"
+  ) : (
+    <>
+      Edit <span className="text-lightFour">#</span>
+      {activeInvoice.id}
+    </>
+  );
+
+  const dynamicInitialValues = isNewInvoice
+    ? initialValues
+    : {
+        ...activeInvoice,
+        createdAt: new Date(activeInvoice.createdAt),
+      };
 
   const handleClose = () => {
     setFormActive(false);
@@ -68,7 +68,7 @@ export default function Form({
 
     const formValues = {
       ...vals,
-      id: generateId(),
+      id: vals.id || generateId(),
       status,
       paymentDue: formatDateString(
         generateFutureDate(
@@ -79,7 +79,15 @@ export default function Form({
       createdAt: formatDateString(vals.createdAt.toLocaleDateString("en-US")),
       total: grandTotal,
     };
-    setInvoices((prevInvoices) => [...prevInvoices, formValues]);
+
+    isNewInvoice
+      ? setInvoices((prevInvoices) => [...prevInvoices, formValues])
+      : setInvoices((prevInvoices) =>
+          prevInvoices.map((invoice) =>
+            invoice.id === formValues.id ? formValues : invoice
+          )
+        );
+
     handleClose();
   };
 
