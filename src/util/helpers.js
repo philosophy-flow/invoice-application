@@ -29,7 +29,7 @@ export const formatDateString = (date) => {
   // mm/dd/yyyy -> yyyy/mm/dd
   const dateArr = date.split("/");
   const [month, day, year] = dateArr;
-  return `${year}/${day}/${month}`;
+  return `${year}/${month}/${day}`;
 };
 
 export const scrollToTop = () => {

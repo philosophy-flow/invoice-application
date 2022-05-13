@@ -1,6 +1,8 @@
 import React from "react";
 import ReceiptCard from "./ReceiptCard";
 
+import { formatDate } from "../util/helpers";
+
 export default function DetailCard({ invoice }) {
   const {
     id = "",
@@ -14,6 +16,7 @@ export default function DetailCard({ invoice }) {
     items = [],
     total = 0,
   } = invoice;
+
   return (
     <div className="bg-white rounded-lg p-6 text-lightFour text-sm font-medium shadow-sm">
       <section className="mb-7.5 md:flex justify-between md:mb-5">
@@ -37,13 +40,13 @@ export default function DetailCard({ invoice }) {
           <div className="mb-8">
             <label>Invoice Date</label>
             <h2 className="text-md text-darkFour font-bold mt-3">
-              {createdAt}
+              {formatDate(createdAt)}
             </h2>
           </div>
           <div>
             <label>Payment Due</label>
             <h2 className="text-md text-darkFour font-bold mt-3">
-              {paymentDue}
+              {formatDate(paymentDue)}
             </h2>
           </div>
         </div>

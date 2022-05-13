@@ -70,13 +70,13 @@ export default function Form({
       ...vals,
       id: generateId(),
       status,
-      createdAt: formatDateString(vals.createdAt.toLocaleDateString()),
       paymentDue: formatDateString(
         generateFutureDate(
           vals.createdAt,
           vals.paymentTerms
         ).toLocaleDateString()
       ),
+      createdAt: formatDateString(vals.createdAt.toLocaleDateString("en-US")),
       total: grandTotal,
     };
     setInvoices((prevInvoices) => [...prevInvoices, formValues]);
