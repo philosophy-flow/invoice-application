@@ -38,7 +38,6 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
       <div className="mb-11">
         <DetailCard invoice={activeInvoice} />
       </div>
-
       <div className="-mb-[6.5rem] -mx-[7%] h-[5.75rem] bg-white shadow-sm px-[6.4%] md:hidden">
         <div className="flex justify-between items-center h-full">
           <Button variant="secondary" label="Edit" onClick={handleFormOpen} />
@@ -46,7 +45,6 @@ function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
           <Button variant="primary" label="Mark as Paid" />
         </div>
       </div>
-
       <DeleteInvoice
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
