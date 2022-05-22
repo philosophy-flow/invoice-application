@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../components/Button";
@@ -6,12 +6,15 @@ import StatusCard from "../components/StatusCard";
 import DetailCard from "../components/DetailCard";
 import DeleteInvoice from "../components/DeleteInvoice";
 
+import { PagesContext } from "../App";
 import { formOpenStyles } from "../util/helpers";
 
-function InvoiceDetail({ setFormActive, activeInvoice, setActiveInvoice }) {
-  const { id, status } = activeInvoice;
-  const [modalOpen, setModalOpen] = useState(false);
+function InvoiceDetail() {
   const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const { setFormActive, activeInvoice, setActiveInvoice } =
+    useContext(PagesContext);
+  const { id, status } = activeInvoice;
 
   useEffect(() => {
     if (!id) {

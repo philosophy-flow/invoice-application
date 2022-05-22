@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import InvoiceCard from "../components/InvoiceCard";
 import ControlPanel from "../components/ControlPanel";
 import NoInvoices from "../components/NoInvoices";
 
-export default function Invoices({
-  invoices = [],
-  setFormActive,
-  setActiveInvoice,
-}) {
+import { PagesContext } from "../App";
+
+export default function Invoices() {
+  const { invoices, setActiveInvoice, setFormActive } =
+    useContext(PagesContext);
+
   return (
     <>
       <ControlPanel

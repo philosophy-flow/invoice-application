@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 import Pages from "./pages";
 import Form from "./components/Form";
 import Header from "./components/Header";
+
+export const PagesContext = createContext();
 
 export default function App() {
   const [formActive, setFormActive] = useState(false);
@@ -17,15 +19,19 @@ export default function App() {
     })();
   }, []);
 
+  const contextValue = {
+    invoices,
+    activeInvoice,
+    setActiveInvoice,
+    setFormActive,
+  };
+
   return (
     <div className="bg-lightOne min-h-screen">
       <Header />
-      <Pages
-        setFormActive={setFormActive}
-        invoices={invoices}
-        activeInvoice={activeInvoice}
-        setActiveInvoice={setActiveInvoice}
-      />
+      <PagesContext.Provider value={contextValue}>
+        <Pages />
+      </PagesContext.Provider>
       <Form
         active={formActive}
         activeInvoice={activeInvoice}
