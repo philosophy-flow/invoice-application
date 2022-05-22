@@ -139,7 +139,9 @@ export default function Form({
 
                 <FormControl
                   handleClose={handleClose}
+                  isNewInvoice={isNewInvoice}
                   setInvoiceStatus={setInvoiceStatus}
+                  status={activeInvoice.status}
                 />
               </FormikForm>
             )}
