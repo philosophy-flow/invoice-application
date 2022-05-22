@@ -35,6 +35,7 @@ export default function App() {
       <Form
         active={formActive}
         activeInvoice={activeInvoice}
+        setActiveInvoice={setActiveInvoice}
         setFormActive={setFormActive}
         setInvoices={setInvoices}
       />

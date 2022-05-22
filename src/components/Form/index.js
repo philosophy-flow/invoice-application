@@ -21,6 +21,7 @@ let { validationSchema, initialValues } = formDetails;
 export default function Form({
   active = false,
   activeInvoice,
+  setActiveInvoice,
   setFormActive,
   setInvoices,
 }) {
@@ -80,13 +81,16 @@ export default function Form({
       total: grandTotal,
     };
 
-    isNewInvoice
-      ? setInvoices((prevInvoices) => [...prevInvoices, formValues])
-      : setInvoices((prevInvoices) =>
-          prevInvoices.map((invoice) =>
-            invoice.id === formValues.id ? formValues : invoice
-          )
-        );
+    if (isNewInvoice) {
+      setInvoices((prevInvoices) => [...prevInvoices, formValues]);
+    } else {
+      setInvoices((prevInvoices) =>
+        prevInvoices.map((invoice) =>
+          invoice.id === formValues.id ? formValues : invoice
+        )
+      );
+      setActiveInvoice(formValues);
+    }
 
     handleClose();
   };
