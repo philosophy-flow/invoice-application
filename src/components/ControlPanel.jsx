@@ -40,6 +40,7 @@ export default function ControlPanel({
             variant="filter"
             label="Filter"
             onClick={() => setFilterOpen((prevState) => !prevState)}
+            filterActive={filterOpen}
           />
           {filterOpen && (
             <Filter
