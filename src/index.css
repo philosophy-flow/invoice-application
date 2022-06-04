@@ -44,10 +44,12 @@ input[type="checkbox"]:checked::before {
 }
 
 /* hover states */
-input[type="checkbox"]:hover {
-  border: 1px solid #7c5dfa;
-}
+@media (hover: hover) {
+  input[type="checkbox"]:hover {
+    border: 1px solid #7c5dfa;
+  }
 
-input[type="checkbox"]:checked:hover {
-  border: none;
+  input[type="checkbox"]:checked:hover {
+    border: none;
+  }
 }
