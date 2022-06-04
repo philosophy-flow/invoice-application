@@ -10,6 +10,7 @@ function Button({
   onClick = () => null,
   type = "button",
   className = "",
+  filterActive = false,
 }) {
   let style;
   switch (variant) {
@@ -50,7 +51,7 @@ function Button({
       {variant === "back" && <LeftArrow />}
       {variant === "primary-icon" && <PlusIcon />}
       {label}
-      {variant === "filter" && <DownArrow />}
+      {variant === "filter" && <DownArrow filterActive={filterActive} />}
       {variant === "delete-item" && <TrashIcon />}
     </button>
   );

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
+import Filter from "./Filter";
 import { formOpenStyles } from "../util/helpers";
 
-export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
+export default function ControlPanel({
+  invoiceCount = 0,
+  setFormActive,
+  selectedInvoiceTypes,
+  setSelectedInvoiceTypes,
+}) {
+  const [filterOpen, setFilterOpen] = useState(false);
+
   let countText;
   switch (invoiceCount) {
     case 0:
@@ -27,7 +35,20 @@ export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
         <p className="text-sm text-lightFour">{countText}</p>
       </div>
       <div className="flex">
-        <Button variant="filter" label="Filter" />
+        <div className="relative">
+          <Button
+            variant="filter"
+            label="Filter"
+            onClick={() => setFilterOpen((prevState) => !prevState)}
+            filterActive={filterOpen}
+          />
+          {filterOpen && (
+            <Filter
+              selectedInvoiceTypes={selectedInvoiceTypes}
+              setSelectedInvoiceTypes={setSelectedInvoiceTypes}
+            />
+          )}
+        </div>
         <Button variant="primary-icon" label="New" onClick={handleFormOpen} />
       </div>
     </div>
