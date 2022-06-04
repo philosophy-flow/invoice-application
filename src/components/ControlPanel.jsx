@@ -3,7 +3,12 @@ import Button from "./Button";
 import Filter from "./Filter";
 import { formOpenStyles } from "../util/helpers";
 
-export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
+export default function ControlPanel({
+  invoiceCount = 0,
+  setFormActive,
+  selectedInvoiceTypes,
+  setSelectedInvoiceTypes,
+}) {
   const [filterOpen, setFilterOpen] = useState(false);
 
   let countText;
@@ -36,7 +41,12 @@ export default function ControlPanel({ invoiceCount = 0, setFormActive }) {
             label="Filter"
             onClick={() => setFilterOpen((prevState) => !prevState)}
           />
-          {filterOpen && <Filter />}
+          {filterOpen && (
+            <Filter
+              selectedInvoiceTypes={selectedInvoiceTypes}
+              setSelectedInvoiceTypes={setSelectedInvoiceTypes}
+            />
+          )}
         </div>
         <Button variant="primary-icon" label="New" onClick={handleFormOpen} />
       </div>
