@@ -9,7 +9,7 @@ export const PagesContext = createContext();
 export default function App() {
   const [formActive, setFormActive] = useState(false);
   const [invoices, setInvoices] = useState([]);
-  const [activeInvoice, setActiveInvoice] = useState({});
+  const [activeInvoiceId, setActiveInvoiceId] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -19,11 +19,17 @@ export default function App() {
     })();
   }, []);
 
+  const activeInvoice = activeInvoiceId
+    ? invoices.find((invoice) => invoice.id === activeInvoiceId)
+    : {};
+
   const contextValue = {
     invoices,
     activeInvoice,
-    setActiveInvoice,
+    activeInvoiceId,
+    setActiveInvoiceId,
     setFormActive,
+    setInvoices,
   };
 
   return (
@@ -35,7 +41,7 @@ export default function App() {
       <Form
         active={formActive}
         activeInvoice={activeInvoice}
-        setActiveInvoice={setActiveInvoice}
+        setActiveInvoiceId={setActiveInvoiceId}
         setFormActive={setFormActive}
         setInvoices={setInvoices}
       />

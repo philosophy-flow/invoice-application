@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 import { formatDate, formatMoney } from "../util/helpers";
 
-function InvoiceCard({ invoice, setActiveInvoice = () => null }) {
+function InvoiceCard({ invoice, setActiveInvoiceId = () => null }) {
   const { id, clientName, paymentDue, total, status } = invoice;
   const navigate = useNavigate();
 
   const handleInvoiceSelection = () => {
-    setActiveInvoice(invoice);
+    setActiveInvoiceId(id);
     navigate(`/invoices/${id}`);
   };
 

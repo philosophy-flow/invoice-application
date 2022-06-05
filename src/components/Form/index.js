@@ -21,7 +21,7 @@ let { validationSchema, initialValues } = formDetails;
 export default function Form({
   active = false,
   activeInvoice,
-  setActiveInvoice,
+  setActiveInvoiceId,
   setFormActive,
   setInvoices,
 }) {
@@ -89,7 +89,7 @@ export default function Form({
           invoice.id === formValues.id ? formValues : invoice
         )
       );
-      setActiveInvoice(formValues);
+      setActiveInvoiceId(formValues.id);
     }
 
     handleClose();
