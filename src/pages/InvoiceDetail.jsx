@@ -12,9 +12,13 @@ import { formOpenStyles } from "../util/helpers";
 function InvoiceDetail() {
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
-  const { setFormActive, activeInvoice, setActiveInvoiceId } =
+  const { setFormActive, activeInvoice, setActiveInvoiceId, setInvoices } =
     useContext(PagesContext);
+
   const { id, status } = activeInvoice;
+
+  const statusBtnLabel =
+    status === "pending" ? "Mark as Paid" : "Mark as Pending";
 
   useEffect(() => {
     if (!id) {
@@ -32,6 +36,15 @@ function InvoiceDetail() {
     formOpenStyles();
   };
 
+  const handleStatusChange = () => {
+    const newStatus = status === "pending" ? "paid" : "pending";
+    setInvoices((prev) =>
+      prev.map((invoice) =>
+        invoice.id === id ? { ...invoice, status: newStatus } : invoice
+      )
+    );
+  };
+
   return (
     <>
       <Button variant="back" label="Go Back" onClick={handleBack} />
@@ -45,7 +58,11 @@ function InvoiceDetail() {
         <div className="flex justify-between items-center h-full">
           <Button variant="secondary" label="Edit" onClick={handleFormOpen} />
           <Button variant="danger" label="Delete" />
-          <Button variant="primary" label="Mark as Paid" />
+          <Button
+            variant="primary"
+            label={statusBtnLabel}
+            onClick={handleStatusChange}
+          />
         </div>
       </div>
       <DeleteInvoice

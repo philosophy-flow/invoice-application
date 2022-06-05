@@ -26,8 +26,10 @@ export default function App() {
   const contextValue = {
     invoices,
     activeInvoice,
+    activeInvoiceId,
     setActiveInvoiceId,
     setFormActive,
+    setInvoices,
   };
 
   return (
