@@ -12,7 +12,7 @@ import { formOpenStyles } from "../util/helpers";
 function InvoiceDetail() {
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
-  const { setFormActive, activeInvoice, setActiveInvoice } =
+  const { setFormActive, activeInvoice, setActiveInvoiceId } =
     useContext(PagesContext);
   const { id, status } = activeInvoice;
 
@@ -20,10 +20,10 @@ function InvoiceDetail() {
     if (!id) {
       navigate("/invoices");
     }
-  }, [id, navigate, setActiveInvoice]);
+  }, [id, navigate]);
 
   const handleBack = () => {
-    setActiveInvoice({});
+    setActiveInvoiceId(null);
     navigate("/invoices");
   };
 

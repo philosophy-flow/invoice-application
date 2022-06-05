@@ -8,7 +8,7 @@ import { PagesContext } from "../App";
 
 export default function Invoices() {
   const [selectedInvoiceTypes, setSelectedInvoiceTypes] = useState([]);
-  const { invoices, setActiveInvoice, setFormActive } =
+  const { invoices, setActiveInvoiceId, setFormActive } =
     useContext(PagesContext);
 
   const selectedInvoices =
@@ -31,7 +31,7 @@ export default function Invoices() {
           <InvoiceCard
             key={invoice.id}
             invoice={invoice}
-            setActiveInvoice={setActiveInvoice}
+            setActiveInvoiceId={setActiveInvoiceId}
           />
         ))
       ) : (
