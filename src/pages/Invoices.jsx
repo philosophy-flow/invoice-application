@@ -26,7 +26,7 @@ export default function Invoices() {
         selectedInvoiceTypes={selectedInvoiceTypes}
         setSelectedInvoiceTypes={setSelectedInvoiceTypes}
       />
-      {invoices.length ? (
+      {selectedInvoices.length ? (
         selectedInvoices.map((invoice) => (
           <InvoiceCard
             key={invoice.id}
@@ -35,7 +35,7 @@ export default function Invoices() {
           />
         ))
       ) : (
-        <NoInvoices />
+        <NoInvoices invoicesExist={invoices.length > 0} />
       )}
     </>
   );
