@@ -19,9 +19,8 @@ export default function App() {
     })();
   }, []);
 
-  const activeInvoice = activeInvoiceId
-    ? invoices.find((invoice) => invoice.id === activeInvoiceId)
-    : {};
+  const activeInvoice =
+    invoices.find((invoice) => invoice.id === activeInvoiceId) || {};
 
   const contextValue = {
     invoices,

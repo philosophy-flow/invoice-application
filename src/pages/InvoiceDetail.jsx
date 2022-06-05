@@ -11,7 +11,7 @@ import { formOpenStyles } from "../util/helpers";
 
 function InvoiceDetail() {
   const navigate = useNavigate();
-  const [modalOpen, setModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const { setFormActive, activeInvoice, setActiveInvoiceId, setInvoices } =
     useContext(PagesContext);
 
@@ -57,7 +57,11 @@ function InvoiceDetail() {
       <div className="-mb-[6.5rem] -mx-[7%] h-[5.75rem] bg-white shadow-sm px-[6.4%] md:hidden">
         <div className="flex justify-between items-center h-full">
           <Button variant="secondary" label="Edit" onClick={handleFormOpen} />
-          <Button variant="danger" label="Delete" />
+          <Button
+            variant="danger"
+            label="Delete"
+            onClick={() => setDeleteModalOpen(true)}
+          />
           <Button
             variant="primary"
             label={statusBtnLabel}
@@ -66,9 +70,10 @@ function InvoiceDetail() {
         </div>
       </div>
       <DeleteInvoice
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
+        modalOpen={deleteModalOpen}
+        setModalOpen={setDeleteModalOpen}
         invoiceId={id}
+        setInvoices={setInvoices}
       />
     </>
   );
