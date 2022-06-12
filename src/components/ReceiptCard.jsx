@@ -4,30 +4,42 @@ import { formatMoney } from "../util/helpers";
 function ReceiptCard({ items = [], total = "0.00" }) {
   return (
     <div className="rounded-lg overflow-hidden">
-      <section className="p-6 bg-lightOne text-darkFour w-full md:table">
-        <div className="hidden md:table-row">
-          <p className="table-cell">Item Name</p>
-          <p className="table-cell">QTY.</p>
-          <p className="table-cell">Price</p>
-          <p className="table-cell">Total</p>
+      <section className="p-6 bg-lightOne text-darkFour w-full">
+        <div className="hidden md:flex md:justify-between md:mb-8 text-lightThree">
+          <p>Item Name</p>
+          <div className="flex justify-between w-[50%]">
+            <div className="flex">
+              <p className="mr-[5.5rem]">QTY.</p>
+              <p>Price</p>
+            </div>
+            <p>Total</p>
+          </div>
         </div>
         {items.map((item) => (
           <div
             key={item.name}
-            className="flex justify-between items-center mb-6 last:mb-0 md:table-row"
+            className="flex justify-between items-center mb-6 last:mb-0"
           >
-            <div className="md:table-cell">
-              <h2 className="text-sm font-bold mb-2">{item.name}</h2>
+            <div>
+              <h2 className="text-sm font-bold mb-2 md:mb-0">{item.name}</h2>
               <p className="text-lightThree text-sm font-bold md:hidden">
                 {item.quantity}
                 {" x "}${formatMoney(item.price)}
               </p>
             </div>
-            <p className="hidden md:table-cell">Test</p>
-            <p className="hidden md:table-cell">Test2</p>
-            <p className="text-sm font-bold md:table-cell">
-              ${formatMoney(item.total)}
-            </p>
+            <div className="md:flex md:justify-between md:w-[50%]">
+              <div className="hidden md:flex">
+                <p className="w-8 text-center text-lightThree text-sm font-bold">
+                  {item.quantity}
+                </p>
+                <p className="ml-[5.5rem] text-lightThree text-sm font-bold w-8">
+                  ${formatMoney(item.price)}
+                </p>
+              </div>
+              <p className="text-sm font-bold md:block">
+                ${formatMoney(item.total)}
+              </p>
+            </div>
           </div>
         ))}
       </section>
