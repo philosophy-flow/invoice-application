@@ -5,7 +5,7 @@ function ReceiptCard({ items = [], total = "0.00" }) {
   return (
     <div className="rounded-lg overflow-hidden">
       <section className="p-6 bg-lightOne text-darkFour w-full">
-        <div className="hidden md:flex md:justify-between md:mb-8">
+        <div className="hidden md:flex md:justify-between md:mb-8 text-lightThree">
           <p>Item Name</p>
           <div className="flex justify-between w-[50%]">
             <div className="flex">
@@ -29,8 +29,12 @@ function ReceiptCard({ items = [], total = "0.00" }) {
             </div>
             <div className="md:flex md:justify-between md:w-[50%]">
               <div className="hidden md:flex">
-                <p className="w-8 text-center">{item.quantity}</p>
-                <p className="ml-[5.5rem] w-8">{formatMoney(item.price)}</p>
+                <p className="w-8 text-center text-lightThree text-sm font-bold">
+                  {item.quantity}
+                </p>
+                <p className="ml-[5.5rem] text-lightThree text-sm font-bold w-8">
+                  ${formatMoney(item.price)}
+                </p>
               </div>
               <p className="text-sm font-bold md:block">
                 ${formatMoney(item.total)}
