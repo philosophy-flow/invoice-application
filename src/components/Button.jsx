@@ -15,19 +15,19 @@ function Button({
   let style;
   switch (variant) {
     case "primary":
-      style = "bg-purple text-white py-4 px-6";
+      style = "bg-purple text-white py-4 px-6 md:hover:bg-lightPurple";
       break;
     case "secondary":
-      style = "bg-lightOne text-lightThree py-4 px-6";
+      style = "bg-lightOne text-lightThree py-4 px-6 md:hover:bg-lightTwo";
       break;
     case "dark":
-      style = "bg-darkTwo text-lightFour py-4 px-6";
+      style = "bg-darkTwo text-lightFour py-4 px-6  md:hover:bg-darkFour";
       break;
     case "danger":
-      style = "bg-red text-white py-4 px-6";
+      style = "bg-red text-white py-4 px-6 md:hover:bg-lightRed";
       break;
     case "primary-icon":
-      style = "bg-purple text-white py-4 pr-6 pl-14";
+      style = "bg-purple text-white py-4 pr-6 pl-14 md:hover:bg-lightPurple";
       break;
     case "back":
       style = "text-darkFour text-sm flex items-center px-0 py-0";
