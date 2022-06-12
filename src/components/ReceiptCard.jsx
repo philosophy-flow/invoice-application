@@ -18,20 +18,24 @@ function ReceiptCard({ items = [], total = "0.00" }) {
         {items.map((item) => (
           <div
             key={item.name}
-            className="flex justify-between items-center mb-6 last:mb-0 md:table-row"
+            className="flex justify-between items-center mb-6 last:mb-0"
           >
-            <div className="md:table-cell">
-              <h2 className="text-sm font-bold mb-2">{item.name}</h2>
+            <div>
+              <h2 className="text-sm font-bold mb-2 md:mb-0">{item.name}</h2>
               <p className="text-lightThree text-sm font-bold md:hidden">
                 {item.quantity}
                 {" x "}${formatMoney(item.price)}
               </p>
             </div>
-            <p className="hidden md:table-cell">Test</p>
-            <p className="hidden md:table-cell">Test2</p>
-            <p className="text-sm font-bold md:table-cell">
-              ${formatMoney(item.total)}
-            </p>
+            <div className="md:flex md:justify-between md:w-[50%]">
+              <div className="hidden md:flex">
+                <p className="w-8 text-center">{item.quantity}</p>
+                <p className="ml-[5.5rem] w-8">{formatMoney(item.price)}</p>
+              </div>
+              <p className="text-sm font-bold md:block">
+                ${formatMoney(item.total)}
+              </p>
+            </div>
           </div>
         ))}
       </section>
