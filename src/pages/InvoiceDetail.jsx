@@ -49,7 +49,13 @@ function InvoiceDetail() {
     <>
       <Button variant="back" label="Go Back" onClick={handleBack} />
       <div className="mt-8 mb-4">
-        <StatusCard status={status} />
+        <StatusCard
+          handleFormOpen={handleFormOpen}
+          handleStatusChange={handleStatusChange}
+          setDeleteModalOpen={setDeleteModalOpen}
+          status={status}
+          statusBtnLabel={statusBtnLabel}
+        />
       </div>
       <div className="mb-11">
         <DetailCard invoice={activeInvoice} />
